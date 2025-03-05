@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+input[type="text"],
+[type="date"],
+[type="email"],
+[type="number"] {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+label {
+  font-size: bold;
+}

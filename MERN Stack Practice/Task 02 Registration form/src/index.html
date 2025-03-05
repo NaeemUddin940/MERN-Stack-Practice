@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="px-3 sm:flex-wrap flex-wrap">
+    <header class=" xl:mx-20">
+      <div
+        class="flex justify-between items-center sm:flex sm:justify-between sm:items-center"
+      >
+        <img
+          class="md:w-[130px] sm:w-[100px] xl:w-[230px]"
+          src="https://tangerine-muffin-667873.netlify.app/ictdd.png"
+          width="75px"
+          alt=""
+        />
+        <div class="text-center">
+          <h1
+          class="font-bold md:text-4xl xl:text-7xl xl:mb-3 sm:text-4xl sm:font-bold text-black drop-shadow-[2px_2px_5px_rgba(0,0,0,0.3)]"
+          >
+          ICT DIVISION
+        </h1>
+        <nav class="flex justify-center font-bold ml-1 sm:[&>*]:ml-3
+          [&>*]:bg-gray-400 [&>*]:ml-[1px] [&>*]:px-[4px] [&>*]:rounded [&>*]:hover:bg-gray-500
+          xl:[&>*]:px-4 xl:[&>*]:py-3 xl:[&>*]:ml-4">
+          <a href="#">Home</a>
+          <a href="#">Course</a>
+          <a href="#">Roadmap</a>
+          <a href="#">Coarse Details</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+        <img
+          class="md:w-[130px] sm:w-[100px] xl:w-[230px]"
+          src="https://tangerine-muffin-667873.netlify.app/ledp.png"
+          width="75px"
+          alt=""
+        />
+      </div>
+      <hr>
+    </header>
+    <main class="xl:mx-20 " >
+      <div>
+        <h1 class="flex justify-center text-2xl font-bold md:text-3xl xl:text-5xl">Student Registration Form</h1>
+        <h3 class="text-2xl flex justify-center md:text-3xl xl:text-5xl">Please Enter Your Required Information</h3>
+        <hr>
+        <form class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-2">
+          <div>
+            <label for="district">District</label>
+            <select class="w-full border rounded" id="district">
+              <option selected disabled value="district">--Select One--</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Rajshshi">Rajshshi</option>
+              <option value="Sylhet">Sylhet</option>
+            </select>
+            <label for="Course">Course</label>
+            <select class="w-full border rounded" id="Course">
+              <option selected disabled value="Course">--Select One--</option>
+              <option value="Binary">Binary</option>
+              <option value="Virtual Rwality">Virtual Rwality</option>
+              <option value="Computer">Computer</option>
+            </select>
+            <label for="name">Student Name</label>
+            <input type="text" placeholder="Enter Your Name...." id="name">
+            <label for="name">Father Name</label>
+            <input type="text" placeholder="Enter Your Father Name...." id="name">
+            <label for="name">Mother Name</label>
+            <input type="text" placeholder="Enter Your Mother Name...." id="name">
+            <label for="date">Date of Birth</label>
+            <input type="date" id="date">
+            <!-- Gender -->
+            <label class="text-2xl"  for="gender">Gender</label>
+            <input type="radio" value="male" name="gender" id="male">
+            <label for="male">Male</label>
+            <input type="radio" value="female" name="gender" id="female">
+            <label for="female">Female</label>
+            <br>
+            <!-- Physically Handicaped -->
+            <label class="text-2xl" for="phed">Physically Handicaped</label>
+            <input type="radio" value="Yes" name="phed" id="Yes">
+            <label for="Yes">Yes</label>
+            <input type="radio" value="No" name="phed" id="No">
+            <label for="No">No</label>
+            <br>
+            <!-- email -->
+             <label class="text-2xl"  for="email">Enter Your Email</label>
+             <input type="email" placeholder="example@email.com" id="email">
+             <!-- Phone Number -->
+              <label for="phone">Enter Your Phone Number (It must be 11 digit)</label>
+              <input type="number" name="" id="phone">
+          </div>
+          <div>
+            <label for="id">Identification Type</label>
+            <select class="w-full border rounded" name="" id="">
+              <option value="">--Select One--</option>
+              <option value="NID">NID</option>
+              <option value="Passport">Passport</option>
+            </select>
+            <p>Identification No. (Must be 10 digits for new NID or 17 digits for old NID. If your National ID is 13 digits, then please add your birth year with the ID as prefix. Example: 1980XXXXXXXXXXXXX)*
+            </p>
+            <input type="number" name="" id="" placeholder="Enter Your NID or Passport Number">
+            <label for="district">Home District</label>
+            <select class="w-full border rounded" id="district">
+              <option selected disabled value="district">--Select One--</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Rajshshi">Rajshshi</option>
+              <option value="Sylhet">Sylhet</option>
+            </select>
+            <label for="Upozila">Upozila</label>
+            <select class="w-full border rounded" id="Upozila">
+              <option selected disabled value="Upozila">--Select One--</option>
+              <option value="Mohopur">Mohopur</option>
+              <option value="ShahMukhdum">ShahMukhdum</option>
+              <option value="Tanor">Tanor</option>
+            </select>
+            <label for="address">Village/House No./Road No./Other alternative*</label>
+            <input type="text" id="address">
+            <label for="postoffice">Post Office</label>
+            <input type="text" id="postoffice">
+          </select>
+          <label for="Education">Educational Qualification</label>
+          <select class="w-full border rounded" id="Education">
+            <option selected disabled value="Education">--Select One--</option>
+            <option value="HSC">HSC</option>
+            <option value="SSC">ShahMukhdum</option>
+            <option value="Honours">Honours</option>
+          </select>
+          <label class="text-2xl" for="pc">Have any Computer</label>
+          <input type="radio" value="Yes" name="pc" id="Yes">
+          <label for="Yes">Yes</label>
+          <input type="radio" value="No" name="pc" id="No">
+          <label for="No">No</label>
+          <br>
+          <label for="photo">Photograph</label>
+          <input class="border w-50" type="file" name="" id="photo">
+          <br>
+          <span>(File type must be jpg or jpeg or png. Maximum file size 2 mb.)</span>
+          <br>
+          <label for="signature">Signature</label>
+          <input class="border w-50" type="file" name="" id="photo"> <br>
+          <span>(File type must be jpg or jpeg or png. Maximum file size 2 mb.)</span>
+          </div>
+        </form>
+        <input class="font-bold w-full bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600" type="button" value="Submit">
+      </div>
+    </main>
+  </body>
+</html>
