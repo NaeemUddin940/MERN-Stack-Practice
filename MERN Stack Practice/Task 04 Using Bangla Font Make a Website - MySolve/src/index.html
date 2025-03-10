@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script defer src="script.js"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header class="h-15 flex justify-center items-center fixed w-screen z-1">
+      <img
+        class="object-contain size-20"
+        id="img"
+        src="./trackodata ১.jpg"
+        width="60"
+        alt="TOD"
+      />
+      <div
+        class="sm:flex sm:justify-center sm:items-center text-xl lg:text-2xl hidden px-5"
+      >
+        <a href="#">হোম</a>
+        <a href="#পরিচিতি">পরিচিতি</a>
+        <a href="#দক্ষতা">দক্ষতা</a>
+        <div class="px-2">
+          <svg
+            class="text-white cursor-pointer"
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+            ></path>
+          </svg>
+          <!-- <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"></path></svg> -->
+        </div>
+        <button>লগইন</button>
+      </div>
+      <div
+        onclick="menuToggle(this)"
+        class="Container px-5 flex justify-center items-center flex-col sm:hidden"
+      >
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </header>
+
+    <!-- পরিচিতি  -->
+    <div id="পরিচিতি">
+      <div class="p-10 w-full">
+        <h1 class="text-3xl mb-10 font-bold text-center text-white">
+          আমার সম্পর্কে কিছু তথ্য
+        </h1>
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="flex justify-center items-center">
+            <div
+              class="w-[200px] h-[300px] flex justify-center items-center rounded-2xl bg-linear-to-bl from-violet-500 to-fuchsia-500 size-50 object-contain bg-transparent rotate-9"
+            >
+              <!-- <img  src="./IMG_1619.JPG" alt="g"> -->
+              <img
+                class="object-cover -rotate-18 rounded-2xl"
+                src="./IMG_1619.JPG"
+                alt="NAEEM UDDIN"
+              />
+            </div>
+          </div>
+          <div
+            class="border-l-3 mt-10 border-fuchsia-500 px-5 py-2 text-white text-xl"
+          >
+            আমি মো: নাঈম উদ্দিন একজন ছাত্র। রাজশাহী কলেজে Bachelor of Arts নিয়ে
+            পড়াশোনা করছি। প্রোগ্রামিং এর প্রতি ভালবাসা আমার অনেক আগে থেকেই ছিল
+            এবং এখন ও আছে আর আমার বিশ্বাস যে ইনশাহ্ আল্লাহ্ ভবিষ্যতেও থাকবে।
+            বর্তমানে আমি Interactive Care It Center এ MERN Stack Web Development
+            Course এ ভর্তি আছি। MERN Stack Web Development Course এর মাধ্যমে
+            ভালো কিছু শিখে আমার জ্ঞানকে বৃদ্ধি করার জন্য আপনাদের কাছে দোয়া
+            প্রার্থনা করছি।
+            <br />
+            <br />
+            মো: নাঈম উদ্দিন
+            <br />
+            বর্তমান: Interactive Care It’s Student.
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="text-white lg:mx-20" />
+
+    <!-- Skills  -->
+    <div id="দক্ষতা" class="p-10 h-210">
+      <h1 class="text-4xl text-white lg:text-center text-center font-bold">
+        আমার কিছু দক্ষতা সম্পর্কে বিস্তারিত
+      </h1>
+      <div class="lg:grid lg:grid-cols-2 mt-10 lg:gap-5 lg:w-[100%]">
+        <div
+          class="flex justify-center lg:flex lg:justify-start lg:items-center lg:h-[600px] lg: my-10 w-[100%] lg:relative items-center"
+        >
+          <img
+            class="h-100 rounded-2xl object-cover"
+            src="./skills.avif"
+            alt="Skills"
+          />
+        </div>
+        <div
+          class="text-white skills lg:absolute lg:left-130 lg:space-x-5 lg:grid lg:grid-cols-2 space-y-5 xl:grid xl:grid-cols-3"
+        >
+          <div class="p-5 rounded-xl flex flex-col justify-center items-center">
+            <img
+              src="https://cdn3d.iconscout.com/3d/free/thumb/free-html-3d-icon-download-in-png-blend-fbx-gltf-file-formats--html5-logo-dom-markup-language-frontend-coding-lang-pack-logos-icons-7578018.png?f=webp"
+              alt="HTML"
+            />
+            <h1>HTML</h1>
+            <p>
+              আমি HTML এর Basic টা জানি এবং তার পাশাপাশি Advanced এর একটু জানি।
+            </p>
+            <button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="14"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              আরো দেখুন
+            </button>
+          </div>
+          <div class="p-5 rounded-xl flex flex-col justify-center items-center">
+            <img
+              src="https://cdn3d.iconscout.com/3d/free/thumb/free-css-3d-icon-download-in-png-blend-fbx-gltf-file-formats--html-logo-css3-html5-cascading-style-sheets-coding-lang-pack-logos-icons-7578024.png?f=webp"
+              alt="CSS"
+            />
+            <h1>CSS</h1>
+            <p>
+              আমি CSS এর Basic টা জানি এবং তার পাশাপাশি Advanced এর একটু জানি।
+            </p>
+            <button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="14"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              আরো দেখুন
+            </button>
+          </div>
+          <div class="p-5 rounded-xl flex flex-col justify-center items-center">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/012/697/298/non_2x/3d-javascript-logo-design-free-png.png"
+              alt="JavaScript"
+            />
+            <h1>JavaScript</h1>
+            <p>
+              আমি JavaScript এর Basic টা জানি এবং তার পাশাপাশি Advanced এর একটু
+              জানি।
+            </p>
+            <button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="14"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              আরো দেখুন
+            </button>
+          </div>
+          <div class="p-5 rounded-xl flex flex-col justify-center items-center">
+            <img
+              src="https://cdn3d.iconscout.com/3d/free/thumb/free-react-3d-icon-download-in-png-blend-fbx-gltf-file-formats--facebook-logo-native-javascript-library-user-interfaces-coding-lang-pack-logos-icons-7578010.png?f=webp"
+              alt="React JS"
+            />
+            <h1>React Js</h1>
+            <p>আমি React Js এর Basic টা একটু জানি।</p>
+            <button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="14"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              আরো দেখুন
+            </button>
+          </div>
+          <div class="p-5 rounded-xl flex flex-col justify-center items-center">
+            <img
+              src="https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F800%2F1%2AYhe1R94CIotr2se7Wf6TQQ.png%3Fstyle%3Dcenterme"
+              alt="Node JS"
+            />
+            <h1>Node Js</h1>
+            <p>আমাদের Node Js এখনো শেখায়নি।</p>
+            <button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="14"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              আরো দেখুন
+            </button>
+          </div>
+          <div
+            class="p-5 rounded-xl flex flex-col justify-center items-center xl:hidden"
+          >
+            <img
+              src="https://cdn3d.iconscout.com/3d/free/thumb/free-nodejs-3d-icon-download-in-png-blend-fbx-gltf-file-formats--javascript-runtime-backend-node-js-logo-coding-lang-pack-logos-icons-7578002.png"
+              alt="Express Js"
+            />
+            <h1>Express Js</h1>
+            <p>আমাদের Express Js এখনো শেখায়নি।</p>
+            <button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="14"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              আরো দেখুন
+            </button>
+          </div>
+          <div class="p-5 rounded-xl flex flex-col justify-center items-center">
+            <img
+              src="https://cdn3d.iconscout.com/3d/free/thumb/free-mongo-db-3d-icon-download-in-png-blend-fbx-gltf-file-formats--mongodb-database-document-oriented-nosql-coding-lang-pack-logos-icons-7577996.png"
+              alt="MongoDB"
+            />
+            <h1>MongoDB</h1>
+            <p>আমাদের MongoDB এখনো শেখায়নি।</p>
+            <button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                height="14"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              আরো দেখুন
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
