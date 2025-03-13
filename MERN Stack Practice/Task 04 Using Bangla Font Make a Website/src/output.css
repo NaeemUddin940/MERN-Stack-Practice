@@ -485,9 +485,6 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -1993,11 +1990,6 @@
         margin-inline-start: calc(calc(var(--spacing) * 5) * var(--tw-space-x-reverse));
         margin-inline-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-x-reverse)));
       }
-    }
-  }
-  .lg\:p-10 {
-    @media (width >= 64rem) {
-      padding: calc(var(--spacing) * 10);
     }
   }
   .lg\:pr-5 {

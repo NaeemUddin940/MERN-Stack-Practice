@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+
+/* Google Fonts Poppines */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+header a{
+    padding: 0 5px;
+}
+
+a:hover{
+    color: #FF902A;
+}
+
+input{
+    outline: none;
+}
+
+#main{
+    background-image: url(./assets/Exclude.png);
+    /* background-color: #2F2105; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg{
+    background-image: url(./assets/bg_img_hero.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.bg2{
+    background-image: url(./assets/bg_img_hero\ \(1\).svg);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
