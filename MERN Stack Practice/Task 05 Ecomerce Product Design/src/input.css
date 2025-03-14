@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+#list li {
+  height: 50px;
+  width: 250px;
+}
+
+#list {
+    height: 100vh;
+}
+
+#list li a {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+}
+
+
+#list li a:hover {
+  background-color: gray;
+}
+
+.cancel {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+
+}
+
+.cancel:hover{
+    background-color: rgb(232, 230, 230);
+}
+
+
+#mainlist li{
+    height: 80px;
+
+}
+
+#mainlist li a{
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+#mainlist li a:hover{
+    border-bottom: 4px solid orange;
+}
