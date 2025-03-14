@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>E-commerce product page</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon-32x32.png" />
     <link href="./output.css" rel="stylesheet" />
     <script defer src="script.js"></script>
   </head>
@@ -68,15 +69,23 @@
 
         <div class="cartWithProfile flex items-center gap-3">
           <!-- Cart  -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#000000">
-            <path
-              d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
-          </svg>
+          <div>
+            <button onclick="CartToggle()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                class="cursor-pointer"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#000000">
+                <path
+                  d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+              </svg>
+            </button>
+            <div id="Cart" class="hidden">
+              <div class="border-b-2 border-gray-400 p-3">Cart</div>
+            </div>
+          </div>
 
           <!-- Profile  -->
           <div>
@@ -90,28 +99,28 @@
       class="main grid grid-cols-1 min-[1000px]:grid min-[1000px]:grid-cols-2">
       <div class="flex flex-col justify-center items-center">
         <img
-          class="mt-5 min-[700px]:w-[500px] min-[1000px]:w-[400px]"
+          class="imgMain min-[700px]:w-[500px] min-[1000px]:w-[450px]"
           src="../images/image-product-1.jpg"
           alt="" />
-        <div class="flex mt-5 h-20">
+        <div onclick="imgSwitch(event)" class="gap-2 flex mt-5 h-20">
           <img
-            class="border-2 border-gray-300"
-            src="../images/image-product-1-thumbnail.jpg"
+            class="hoverImg"
+            src="../images/image-product-1.jpg"
             width="100px"
             alt="" />
           <img
-            class="border-2 border-gray-300"
-            src="../images/image-product-2-thumbnail.jpg"
+            class="hoverImg"
+            src="../images/image-product-2.jpg"
             width="100px"
             alt="" />
           <img
-            class="border-2 border-gray-300"
-            src="../images/image-product-3-thumbnail.jpg"
+            class="hoverImg"
+            src="../images/image-product-3.jpg"
             width="100px"
             alt="" />
           <img
-            class="border-2 border-gray-300"
-            src="../images/image-product-4-thumbnail.jpg"
+            class="hoverImg"
+            src="../images/image-product-4.jpg"
             width="100px"
             alt="" />
         </div>
@@ -130,31 +139,35 @@
           <h2 class="text-4xl font-[900]">$125.00</h2>
           <h4 class="text-xl font-bold text-gray-400"><del>$250.00</del></h4>
         </div>
-        <div class="space-y-3">
+        <div class="space-y-3 min-[1000px]:flex min-[1000px]:gap-5">
           <div
-            class="flex bg-[#e3e4ec] justify-between px-10 items-center rounded-xl">
+            class="flex bg-[#e3e4ec] min-[1000px]:justify-start min-[1000px]:inline-flex min-[1000px]:px-2 justify-between px-10 items-center rounded-xl">
             <button
-              class="p-5 cursor-pointer text-[#FF7D1B] text-2xl font-bold">
+              onclick="increase()"
+              class="active:bg-gray-400 rounded-full px-3 py-2 cursor-pointer text-[#FF7D1B] text-2xl font-bold">
               +
             </button>
-            <h1 class="p-5 font-black">0</h1>
+            <h1 class="number p-5 font-black">0</h1>
             <button
-              class="p-5 cursor-pointer text-[#FF7D1B] text-2xl font-bold">
+              onclick="decrease()"
+              class="decrease active:bg-gray-400 px-3 py-2 cursor-pointer text-[#FF7D1B] text-2xl font-bold rounded-full">
               -
             </button>
           </div>
-          <div
-            class="bg-[#FF7D1B] cursor-pointer w-full rounded-xl flex justify-center items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#000000">
-              <path
-                d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
-            </svg>
-            <button class="py-5 px-2 rounded">Add to cart</button>
+          <div>
+            <button
+              class="flex w-full min-[1000px]:w-[200px] justify-center items-center bg-[#FF7D1B] py-5 px-2 min-[1000px]:py-6 cursor-pointer rounded-xl">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#000000">
+                <path
+                  d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+              </svg>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>

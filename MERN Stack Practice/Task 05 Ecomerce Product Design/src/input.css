@@ -56,3 +56,27 @@
 #mainlist li a:hover{
     border-bottom: 4px solid orange;
 }
+
+
+.hoverImg:hover{
+  border: 2px solid gray;
+}
+
+.cart {
+  position: absolute;
+  display: block;
+  right: 10px; 
+  top: 88px; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  border-radius: 16px; 
+  height: 250px;
+  width: 95%;
+  background-color: white; 
+}
+
+@media (min-width: 530px) {
+  .cart {
+    width: 350px;
+    right: 80px;
+  }
+}
