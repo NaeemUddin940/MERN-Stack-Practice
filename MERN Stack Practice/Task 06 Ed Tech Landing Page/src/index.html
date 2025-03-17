@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <script defer src="script.js"></script>
+  </head>
+  <body class="bg-[#F2F2F2]">
+    <div>
+      <nav class="flex justify-between items-end px-5">
+        <!-- Logo -->
+        <div>
+          <img src="./Screenshot (162) 1.png" width="150" alt="Logo" />
+        </div>
+
+        <!-- Link tag -->
+        <div>
+          <ul class="hidden pb-1 [&_li]:px-3 min-[1000px]:flex">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Apparentiships</a></li>
+            <li><a href="#">More</a></li>
+          </ul>
+        </div>
+
+        <!-- Login or SIgn Up Button  -->
+        <div class="pb-1 flex gap-4">
+          <button class="cursor-pointer">Sign in</button>
+          <button class="bg-[#54B8FF] cursor-pointer px-4 py-1">Login</button>
+          <div
+            onclick="menuToggle(this)"
+            class="Container min-[1000px]:hidden flex flex-col justify-center items-center cursor-pointer">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+          <!-- Sidebar -->
+          <div>
+            <ul
+              id="sideShow"
+              class="fixed top-20 bg-[#e7e7e7] transition-all duration-200 ease-in shadow-2xl -right-50 pb-1 rounded-xl">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Courses</a></li>
+              <li><a href="#">Apparentiships</a></li>
+              <li><a href="#">More</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Main Section -->
+      <main
+        class="grid grid-cols-1 space-y-5 min-[1000px]:gird min-[1000px]:grid-cols-2">
+        <!-- Description Box -->
+        <div class="relative">
+          <img class="" src="./Group (3).png" alt="" />
+          <div class="px-10 flex flex-col items-start space-y-4">
+            <h5 class="text-[#2F2B71] tracking-widest">Training to Succed</h5>
+            <h1 class="text-5xl text-[#5F596E] font-bold">
+              Believe and You<br />can achieve
+            </h1>
+            <p class="text-[#000000] font-medium">
+              Learn any skill from comfort of your home Anywhere and Anytime for
+              only $10
+            </p>
+            <button
+              class="flex cursor-pointer bg-[#54B8FF] text-white px-3 py-2">
+              Apply Now
+              <img src="./arrow-right.png" alt="" />
+            </button>
+          </div>
+          <img src="./kdkd.png" width="80" alt="" />
+          <div>
+            <img
+              class="absolute right-0 bottom-35"
+              src="./Group-1.png"
+              alt="" />
+            <img
+              class="absolute right-30 bottom-19"
+              src="./Group 4356.png"
+              alt="" />
+            <img class="absolute right-0 bottom-15" src="./Group.png" alt="" />
+            <img
+              class="absolute right-30 bottom-0"
+              src="./Group-2.png"
+              alt="" />
+            <img class="absolute right-0 bottom-0" src="./Group.png" alt="" />
+          </div>
+        </div>
+        <!-- Image Container -->
+        <div class="relative mt-10">
+          <img src="./kkkkoasdo.png" alt="" />
+          <img src="./Group 1000001437.png" alt="" />
+          <img class="absolute top-20 right-0" src="./Group (2).png" alt="" />
+          <img class="absolute top-100 right-0" src="./Group (1).png" alt="" />
+        </div>
+      </main>
+      <!-- Heard Section -->
+      <section
+        class="grid space-y-5 grid-cols-1 min-[1000px]:grid-cols-2 gap-10 w-screen">
+        <!-- Card Section -->
+        <div
+          class="pt-30 -translate-x-15 max-[1000px]:justify-center min-[1000px]:w-[500px] min-[1000px]:flex min-[1000px]:justify-center flex justify-center">
+          <!-- Congratulation Box -->
+          <div
+            class="bg-[#FFFDFA] shadow-2xl rounded-xl relative left-40 -top-25 justify-start items-center pl-5 flex h-[70px] w-[350px]">
+            <img width="40px" height="40px" src="./Group 4302.png" alt="" />
+            <div class="pl-5">
+              <h3>Congratulation</h3>
+              <p class="text-[#898E92]">Your admission completed</p>
+            </div>
+          </div>
+          <!-- image Card -->
+          <div
+            class="bg-[#FFFFFF] drop-shadow-[5px_5px_10px_#111] absolute p-3 space-y-3 h-[400px] w-[310px] rounded-xl flex flex-col border-b-8 border-b-[#cdcdcd]">
+            <img src="./Rectangle 989.png" alt="" />
+            <p class="text-[#FF733B]">Music Mastery</p>
+            <div>
+              <h3 class="inter">Basic to higher level</h3>
+              <p class="text-[#898E92]">Class 01</p>
+            </div>
+            <div class="flex gap-3 items-center">
+              <p class="text-[#898E92]">Today * 07.PM - 09.PM</p>
+              <button class="text-[#fff] px-3 py-2 rounded bg-[#367166]">
+                JOIN NOW
+              </button>
+            </div>
+          </div>
+          <!-- Teachers Statistic -->
+          <div
+            class="bg-white p-5 z-1 shadow-2xl -translate-y-35 translate-x-10 flex flex-col items-center rounded-xl h-[300px] w-[250px] mt-10">
+            <h3 class="inter mb-8">Teachers Statistic</h3>
+            <div
+              class="h-[120px] mb-5 w-[120px] border-16 rounded-full border-l-[#FAB408] rotate-40 border-[#19BF6F]"></div>
+            <div class="flex gap-2">
+              <div class="bg-[#FFF3D4] pl-5 h-[50px] w-[100px]">
+                <h3 class="text-2xl text-[#FAB408] font-bold">30%</h3>
+                <p class="inter text-xs text-[#FAB408]">Others Sector</p>
+              </div>
+              <div class="bg-[#DCFFEE] h-[50px] pl-5 w-[100px]">
+                <h3 class="text-2xl text-[#19BF6F] font-bold">70%</h3>
+                <p class="inter text-xs text-[#19BF6F]">IT Sector</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="px-15 pt-20 flex flex-col justify-center items-start">
+          <!-- <img class="relative top-0 -right-0" src="./Plus.png" alt="" />
+            <img class="relative top-0 right-0" src="./Plus.png" alt="" />
+            <img class="relative top-0 right-0" src="./Plus.png" alt="" /> -->
+          <h1 class="text-4xl font-bold">
+            Get the Best Class by<br />the Best Teachers
+          </h1>
+          <p class="inter pt-3 text-[#336C61]">
+            Get your best class and gain the great thing from the best and well
+            qualified experienced teachers all over the world and get shinny. We
+            are a unique training provider willing to give you all the skills
+            and experience you need to fulfil your future career
+          </p>
+          <button class="inter fl pt-3">
+            Read More <img src="./arrow-right.png" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <!-- Facitilites -->
+      <div class="space-x-5 py-10">
+        <div>
+          <div class="flex -translate-x-8">
+            <img src="./Vector (1).png" alt="" />
+            <img src="./Vector (1).png" alt="" />
+          </div>
+          <div class="flex -translate-x-8">
+            <img src="./Vector (1).png" alt="" />
+            <img src="./Vector (1).png" alt="" />
+          </div>
+        </div>
+        <div
+          class="px-10 grid grid-cols-1 space-y-5 min-[1000px]:gird min-[1000px]:grid-cols-3">
+          <div class="flex flex-col justify-center items-center">
+            <img src="./Icon.png" alt="" />
+            <h2>Experienced Teacher</h2>
+            <p class="text-[#757575] text-center">
+              We teach in small groups with experienced, supportive staff who
+              are trained to understand some of the problems our students face.
+            </p>
+          </div>
+          <div class="flex flex-col justify-center text-center items-center">
+            <img src="./Icon (1).png" alt="" />
+            <h2>Progressive Learning</h2>
+            <p class="text-[#757575]">
+              Our mission is to use our knowledge, skills, and networks to equip
+              people with multiple disadvantages with the skills to gain and
+              sustain employment
+            </p>
+          </div>
+          <div class="flex flex-col justify-center text-center items-center">
+            <img src="./Icon (2).png" alt="" />
+            <h2>Graduate and job ready</h2>
+            <p class="text-[#757575]">
+              We are a unique training provider willing to give you all the
+              skills and experience you need to fulfil your future career
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col justify-end items-end">
+          <div class="flex -px-10">
+            <img src="./Vector (1).png" alt="" />
+            <img src="./Vector (1).png" alt="" />
+          </div>
+          <div class="flex -px-10">
+            <img src="./Vector (1).png" alt="" />
+            <img src="./Vector (1).png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Courses -->
+      <div class="flex justify-between items-center">
+        <img class="rotate-180 -translate-y-50" src="./Group (2).png" alt="" />
+        <div>
+          <div class="flex flex-col justify-center items-center">
+            <h3 class="text-4xl font-bold">Featured Course</h3>
+            <p class="text-[#9a9999]">
+              Everything you need to when you're looking
+            </p>
+          </div>
+          <div
+            class="grid flex-col min-[1000px]:grid-cols-3 justify-center items-center px-5 min-[1000px]:gap-5">
+            <div>
+              <img src="./image.png" alt="" />
+              <h5 class="font-bold">A Complete Web development</h5>
+              <p class="text-[#878787]">Technology > Web development</p>
+              <div class="flex items-center justify-between p-5">
+                <div>$450</div>
+                <div class="flex items-center gap-1">
+                  <img src="./Group 4349.png" alt="" />
+                  23.5 hours
+                </div>
+                <div class="flex items-center gap-1">
+                  <img src="./Group 4350.png" alt="" />
+                  52 Articles
+                </div>
+              </div>
+            </div>
+            <div>
+              <img src="./image (1).png" alt="" />
+              <h5 class="font-bold">Music Production Courses</h5>
+              <p class="text-[#878787]">Music & Sounding</p>
+              <div class="flex items-center justify-between p-5">
+                <div>$320</div>
+                <div class="flex items-center gap-1">
+                  <img src="./Group 4349.png" alt="" />
+                  18.5 hours
+                </div>
+                <div class="flex items-center gap-1">
+                  <img src="./Group 4350.png" alt="" />
+                  27 Articles
+                </div>
+              </div>
+            </div>
+            <div>
+              <img src="./image (2).png" alt="" />
+              <h5 class="font-bold">Personality development course</h5>
+              <p class="text-[#878787]">Personal development</p>
+              <div class="flex items-center justify-between p-5">
+                <div>$620</div>
+                <div class="flex items-center gap-1">
+                  <img src="./Group 4349.png" alt="" />
+                  32.3 hours
+                </div>
+                <div class="flex items-center gap-1">
+                  <img src="./Group 4350.png" alt="" />
+                  37 Articles
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="translate-y-50" src="./Group (1).png" alt="" />
+      </div>
+
+      <!-- Quality Place -->
+      <div class="min-[1000px]:grid min-[1000px]:grid-cols-2">
+        <div
+          class="max-[1000px]:bg-[url('./boss.png')] w-screen bg-[center_top] bg-no-repeat h-[656px]">
+          <div
+            class="flex flex-col space-y-10 justify-center items-center max-[1000px]:backdrop-blur-xl h-full w-full px-15 min-[1000px]:justify-center min-[1000px]:items-start">
+            <h5 class="text-[#5352c3]">SIMPLE LEAENING PLATFORM</h5>
+            <h3 class="text-5xl font-bold">
+              A quality place for<br />distance learning
+            </h3>
+            <p class="text-[#232423]">
+              A best and cheapest way of<br />getting know learning to make a
+              better tomorrow
+            </p>
+            <button class="bg-[#54B8FF] px-3 py-2 text-white">
+              Start Free Trial
+            </button>
+          </div>
+        </div>
+        <div>
+          <img class="min-[1000px]:block hidden" src="./boss copy.png" alt="" />
+        </div>
+      </div>
+      <!-- Newsletter -->
+      <div
+        class="bg-[#ADE5E5] flex flex-col items-center justify-center min-[1000px]:grid min-[1000px]:grid-cols-2">
+        <div class="flex justify-center items-center">
+          <img src="./Group 1000001440.png" alt="" />
+        </div>
+        <div class="space-y-5">
+          <h5 class="text-[#8785AA]">NEWSLETTER</h5>
+          <h3 class="text-[#1B1B1B]">Subscribe Our Newsletter</h3>
+          <div
+            class="bg-white px-5 py-3 max-[1000px]:-translate-x-10 flex w-[250px] justify-start items-center pb-5">
+            <input
+              class="outline-none"
+              type="email"
+              placeholder="enter your mail" />
+            <button class="bg-[#12294B]">
+              <img src="./arrow-right.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer
+        class="grid grid-cols-2 min-[1000px]:grid min-[1000px]:grid-cols-4 p-20">
+        <div class="flex pt-3 flex-col">
+          <h4 class="text-2xl pb-5">Pages</h4>
+          <a href="#">Home</a>
+          <a href="#">About Us</a>
+          <a href="#">Courses</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="flex pt-3 flex-col">
+          <h4 class="text-2xl pb-5">Resorces</h4>
+          <a href="#">Our Homes</a>
+          <a href="#">Member Stories</a>
+          <a href="#">Video</a>
+          <a href="#">Free Trial</a>
+        </div>
+        <div class="flex pt-3 flex-col">
+          <h4 class="text-2xl pb-5">Company</h4>
+          <a href="#">Patnerships</a>
+          <a href="#">Terms of use</a>
+          <a href="#">Privacy</a>
+          <a href="#">Sitemap</a>
+        </div>
+        <div>
+          <div class="flex pt-3 justify-start items-center py-2 gap-15">
+            <h4 class="text-2xl">Find us at</h4>
+            <img src="./Group 1293.png" alt="" />
+          </div>
+          <img width="300px" height="150px" src="./Rectangle 4388.png" alt="" />
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.inter{
+  font-family: "Inter", sans-serif;
+}
+
+.showSideBar {
+  right: 0px;
+  display: block;
+}
+
+#sideShow li {
+  width: 200px;
+  display: flex;
+
+
+}
+
+#sideShow li a{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  margin: 5px 0;
+}
+#sideShow li a:hover{
+  background-color: #fff;
+}
+
+
+.bar1,
+.bar2,
+.bar3 {
+  background-color: #000;
+  height: 4px;
+  width: 30px;
+  margin: 3px;
+  transition: 0.5s;
+}
+
+.change .bar1 {
+  transform: translate(0px, 10px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0px, -10px) rotate(45deg);
+}
+
+main div h5{
+  text-transform: uppercase;
+}
