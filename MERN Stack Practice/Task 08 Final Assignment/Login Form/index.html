@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blur Login Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form onsubmit="event.preventDefault();">
+      <div class="form">
+        <div class="form-container">
+          <h1>Login Form</h1>
+          <!-- UserName Form  -->
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter Your username" />
+          <!-- Password Form -->
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Your Password" />
+          <div class="Remember">
+            <div>
+              <!-- Rememer Form -->
+              <input type="checkbox" id="checkbox" />
+              <label for="checkbox">Remember Me</label>
+            </div>
+            <!-- Forget Password -->
+            <span class="forget-pass"><a href="#">Forgot Password?</a></span>
+          </div>
+          <button class="btn">Login</button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

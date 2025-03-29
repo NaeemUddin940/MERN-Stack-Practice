@@ -354,11 +354,17 @@
       max-width: 96rem !important;
     }
   }
+  .my-5 {
+    margin-block: calc(var(--spacing) * 5);
+  }
   .my-10 {
     margin-block: calc(var(--spacing) * 10);
   }
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
+  }
+  .mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
   }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
@@ -484,6 +490,9 @@
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -901,12 +910,8 @@
   .justify-items-stretch {
     justify-items: stretch;
   }
-  .space-y-5 {
-    :where(& > :not(:last-child)) {
-      --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)));
-    }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
   }
   .space-y-reverse {
     :where(& > :not(:last-child)) {
@@ -917,6 +922,9 @@
     :where(& > :not(:last-child)) {
       --tw-space-x-reverse: 1;
     }
+  }
+  .gap-y-5 {
+    row-gap: calc(var(--spacing) * 5);
   }
   .divide-x {
     :where(& > :not(:last-child)) {
@@ -1348,6 +1356,9 @@
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
+  }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
   }
   .text-center {
     text-align: center;
@@ -1963,6 +1974,11 @@
       display: block;
     }
   }
+  .lg\:flex {
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
   .lg\:grid {
     @media (width >= 64rem) {
       display: grid;
@@ -1978,18 +1994,19 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  .lg\:flex-col {
+    @media (width >= 64rem) {
+      flex-direction: column;
+    }
+  }
+  .lg\:justify-center {
+    @media (width >= 64rem) {
+      justify-content: center;
+    }
+  }
   .lg\:gap-5 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 5);
-    }
-  }
-  .lg\:space-x-5 {
-    @media (width >= 64rem) {
-      :where(& > :not(:last-child)) {
-        --tw-space-x-reverse: 0;
-        margin-inline-start: calc(calc(var(--spacing) * 5) * var(--tw-space-x-reverse));
-        margin-inline-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-x-reverse)));
-      }
     }
   }
   .lg\:pr-5 {
