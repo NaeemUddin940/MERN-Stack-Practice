@@ -1,0 +1,51 @@
+.browseRange {
+  text-align: center;
+  padding: 50px 100px;
+}
+
+
+.browseRange > h3 {
+  letter-spacing: 3px;
+  font-size: 2rem;
+}
+.browseRange p {
+  font-size: 1.3rem;
+  padding-bottom: 40px;
+}
+
+.browseRange div {
+  display: grid;
+  grid-template-columns: 1;
+  justify-content: center;
+}
+
+.browseRange > div div {
+  display: flex;
+  flex-direction: column;
+}
+
+.browseRange > div h3 {
+  padding-top: 20px;
+}
+
+
+@media screen and (min-width:992px) {
+  .browseRange div {
+    display: flex;
+    gap: 30px;
+  }
+}
+
+
+/* @media screen and (min-width:940px){
+  .browseRange > div > .bedroom{
+    display: none;
+  }
+}
+
+
+@media screen and (min-width:940px) {
+  .browseRange > div > .bedroom{
+    display: block;
+  }
+} */

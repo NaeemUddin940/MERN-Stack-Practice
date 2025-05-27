@@ -1,0 +1,137 @@
+table,
+td,
+th {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.horizontal-table td,
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.td {
+  background-color: #f9f1e7;
+}
+.as {
+  background-color: #fff;
+}
+
+
+td {
+  text-align: center;
+  padding: 20px 0;
+}
+tr:nth-child(2) td > div {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+tr:nth-child(2) td:first-child img {
+  height: 50px;
+}
+th {
+  background: #f0e6cc;
+}
+.cart{
+  padding: 0 20px;
+}
+.cart-totals {
+  background-color: #f9f1e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  border-radius: 20px;
+}
+
+.cart-totals div {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cart-totals h3 {
+  font-size: 1.7rem;
+  margin-top: 20px;
+}
+
+.cart-totals h6 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  gap: 100px;
+}
+
+.cart-totals h6:first-child span {
+  color: #9f9f9f;
+}
+.cart-totals h6:nth-child(2) span {
+  color: #b88e2f;
+  padding-left: 23px;
+}
+
+.cart-totals div button {
+  background: transparent;
+  padding: 15px 25px;
+  border-radius: 20px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.cart-totals div button:hover {
+  background-color: #b88e2f;
+}
+.vertical-table {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .as div img {
+    height: 40px;
+  }
+  .as div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  td {
+    width: 500px;
+  }
+ 
+}
+
+@media screen and (min-width: 900px) {
+  .horizontal-table {
+    display: none;
+  }
+  .vertical-table {
+    display: block;
+  }
+  tr:first-child td {
+    background-color: #f9f1e7;
+    text-align: center;
+  }
+  .cart{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+  }
+  .cart-totals h6 {
+    gap: 50px;
+  }
+  .cart-totals{
+    width: 300px;
+  }
+  tr  td, th{
+    width: 200px;
+  }
+  
+
+}

@@ -1,0 +1,55 @@
+.hero-section {
+  background-image: url(./interior-mockup.png);
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.mockup {
+  background-color: #fff3e3;
+  position: absolute;
+  height: 300px;
+  width: 500px;
+  bottom: 160px;
+  right: 100px;
+  padding: 20px;
+}
+
+.mockup h5 {
+  letter-spacing: 3px;
+  padding-bottom: 10px;
+}
+.mockup h2 {
+  color: #b88e2f;
+  padding-bottom: 10px;
+}
+.mockup p {
+  padding-bottom: 10px;
+}
+
+.btn {
+  background-color: #b88e2f;
+  padding: 15px 30px;
+  color: #fff;
+  font-size: 1.4rem;
+  border: none;
+}
+
+@media screen and (max-width: 992px) {
+  .hero-section {
+    position: relative;
+  }
+  .mockup {
+    position: absolute;
+    top: 50;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .hero-section{
+    background-size: cover;
+    height: 600px;
+
+  }
+}
