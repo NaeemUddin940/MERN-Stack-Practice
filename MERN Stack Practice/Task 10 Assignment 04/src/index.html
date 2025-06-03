@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thatix || Cooking Recipe</title>
+    <!-- Tailwindcss Link -->
+    <link href="./output.css" rel="stylesheet" />
+
+    <!-- Font Awesome cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- Start Header Section -->
+    <header>
+      <nav class="bg-gray-200 py-3 flex justify-center">
+        <img class="w-35" src="../Resource/images/logo.png" alt="" />
+      </nav>
+    </header>
+    <!-- End Header Section -->
+
+    <!-- Start Page Title -->
+    <div
+      id="page-title"
+      class="text-white bg-cover opacity-86 flex flex-col items-center justify-center bg-no-repeat bg-center h-fit p-7">
+      <h2 class="text-5xl font-medium">Search Your</h2>
+      <h2 class="text-5xl font-medium mb-5">Favourite Recipe</h2>
+      <p class="font-extralight">
+        A handfull of Simple Ingredients typify the fresh, vibrant
+      </p>
+      <p class="font-extralight">flavors of Greek Cooking.</p>
+    </div>
+    <!-- End Page Title -->
+
+    <!-- Start Main Section -->
+    <main>
+      <!-- Start Search Field -->
+      <div class="flex justify-center items-center p-5">
+        <input
+          class="border-2 border-zinc-500 border-r-1 outline-none rounded-l-md px-3 py-1 w-100"
+          type="search"
+          placeholder="Search..." />
+        <button class="bg-yellow-300 cursor-pointer px-2.5 py-1.5 rounded-r-md">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <!-- End Search Field -->
+
+      <div>
+        <h3 class="text-5xl mb-5 text-center">Latest Recipes</h3>
+        <div
+          id="prd-card"
+          class="px-15 justify-items-center grid min-[700px]:grid-cols-2 min-[1370px]:grid-cols-4 min-[1000px]:grid-cols-3 gap-10"></div>
+        <!-- Start Product Card -->
+      </div>
+    </main>
+    <!-- End Main Section -->
+
+    <!-- Product Details Page -->
+    <div id="id01" class="modal py-10"></div>
+
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    <script src="searchFilter.js"></script>
+  </body>
+</html>
