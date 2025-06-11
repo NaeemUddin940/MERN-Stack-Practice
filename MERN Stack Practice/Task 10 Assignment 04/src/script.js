@@ -3,6 +3,7 @@ const productCard = document.getElementById("prd-card");
 
 
 async function fethData(url) {
+  
   try {
     const res = await fetch(url);
     const data = await res.json();

@@ -1,7 +1,13 @@
 var modal = document.getElementById("id01");
-async function showDetails(id) {
-  document.getElementById("id01").style.display = "block";
+const errorBox = document.querySelector(".error");
 
+
+
+async function showDetails(id) {
+  modal.style.display = "block";
+
+  // errorBox.innerHTML = `<p class="text-center text-lg font-medium text-gray-600">Loading...</p>`;
+  modal.innerHTML = "";
   try {
     const res = await fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
@@ -25,6 +31,7 @@ async function showDetails(id) {
              </div>
         </div>
       </div>`;
+    errorBox.innerHTML = "";
   } catch (error) {
     console.log(error, "No Meals Found");
   }

@@ -43,6 +43,7 @@
       <div class="flex justify-center items-center p-5">
         <input
           class="border-2 border-zinc-500 border-r-1 outline-none rounded-l-md px-3 py-1 w-100"
+          id="input"
           type="search"
           placeholder="Search..." />
         <button class="bg-yellow-300 cursor-pointer px-2.5 py-1.5 rounded-r-md">
@@ -53,7 +54,8 @@
 
       <div>
         <h3 class="text-5xl mb-5 text-center">Latest Recipes</h3>
-        <div
+        <div class="error"></div>
+        <div 
           id="prd-card"
           class="px-15 justify-items-center grid min-[700px]:grid-cols-2 min-[1370px]:grid-cols-4 min-[1000px]:grid-cols-3 gap-10"></div>
         <!-- Start Product Card -->
@@ -64,9 +66,11 @@
     <!-- Product Details Page -->
     <div id="id01" class="modal py-10"></div>
 
-    <!-- JavaScript Link -->
+    <!-- script.js user for whole api fetch and product list-->
     <script src="script.js"></script>
+    <!-- script2.js is used for  product details fetch -->
     <script src="script2.js"></script>
+    <!-- searchFilter.js is used for search product -->
     <script src="searchFilter.js"></script>
   </body>
 </html>
