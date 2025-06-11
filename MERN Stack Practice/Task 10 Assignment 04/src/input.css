@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 #page-title {
-  background-image: url(../Resource/images/page-title.jpg);
+  background-image: url(./page-title.jpg);
 }
 
 /* .modal {
