@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
+.active{
+  color: #950df0;
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
