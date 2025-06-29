@@ -17,7 +17,7 @@ export default function GradientText({
       {showBorder && (
         <div className="gradient-overlay" style={gradientStyle}></div>
       )}
-      <div className="text-content text-xl" style={gradientStyle}>
+      <div className="text-content lg:text-2xl md:text-xl" style={gradientStyle}>
         {children}
       </div>
     </div>

@@ -1,8 +1,18 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-.active{
+
+.active {
   color: #950df0;
 }
+.integral-font {
+  font-family: 'IntegralCF', sans-serif;
+}
+
+
+#cart {
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

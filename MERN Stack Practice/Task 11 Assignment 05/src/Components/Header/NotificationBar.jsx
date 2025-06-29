@@ -1,11 +1,11 @@
 import React from "react";
-import GradientText from "./GradientText/GradientText";
-import ShinyText from "./ShinyText/ShinyText";
+import GradientText from "../GradientText/GradientText";
+import ShinyText from "../ShinyText/ShinyText";
 
 export default function NotificationBar() {
   return (
-    <div className="bg-zinc-950 flex justify-center items-center">
-      <div className="flex min-w-170 py-1">
+    <div className="bg-zinc-800 flex justify-center items-center">
+      <div className="flex w-auto py-1 gap-2">
         <GradientText
           colors={[
             "#3188FF",
@@ -18,13 +18,13 @@ export default function NotificationBar() {
           animationSpeed={3}
           showBorder={false}
           className="custom-class">
-          Get Your Favorite Products with 25% off Click to Shop Now.
+          Get Your Favorite Products with 25% off Go to.
         </GradientText>
         <ShinyText
           text="Shop Now"
           disabled={false}
           speed={3}
-          className="custom-class text-xl font-bold underline rounded-3xl text-center cursor-pointer"
+          className="custom-class text-xl font-bold underline max-sm:text-sm rounded-3xl text-center cursor-pointer"
         />
       </div>
     </div>
