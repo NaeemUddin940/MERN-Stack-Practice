@@ -1,7 +1,7 @@
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
-import star from "../../../public/Vector.png";
+import star from "../../assets/Vector.png";
 import CountUp from "../CountUp/CountUp";
-import heroImg from "../../../public/Rectangle.png";
+import heroImg from "../../assets/Rectangle.png";
 
 export default function HeroSection() {
   return (
