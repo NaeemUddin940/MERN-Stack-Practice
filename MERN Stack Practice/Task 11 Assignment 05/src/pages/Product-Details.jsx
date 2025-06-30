@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:3000/products/${id}`)
     .then((res) => res.json())
@@ -17,7 +17,7 @@ export default function ProductPage() {
   }, [id]);
   const [imgPreview, setImgPreview] = useState(null)
   const [selectedColor, setSelectedColor] = useState(null);
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   if (!product) return <p>Product not found</p>;
 
   return (
