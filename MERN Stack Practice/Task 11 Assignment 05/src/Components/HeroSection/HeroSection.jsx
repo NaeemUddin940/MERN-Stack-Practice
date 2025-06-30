@@ -1,7 +1,8 @@
-import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+
 import star from "../../assets/Vector.png";
 import CountUp from "../CountUp/CountUp";
 import heroImg from "../../assets/Rectangle.png";
+import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 export default function HeroSection() {
   return (
@@ -20,7 +21,7 @@ export default function HeroSection() {
           designed to bring out your individuality{" "}
           <br className="hidden md:flex lg:hidden" /> and cater to your sense of style.
         </p>
-        <InteractiveHoverButton />
+        <InteractiveHoverButton text="Shop Now" path='/shop' />
         <div className="">
           <div className="grid grid-cols-3 grid-rows-1 text-center gap-3 ">
             <div className="md:border-2 md:hidden lg:block md:border-zinc-500 px-5 py-3 rounded-xl">
