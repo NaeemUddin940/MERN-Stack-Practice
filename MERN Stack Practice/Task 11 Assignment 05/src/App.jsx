@@ -1,11 +1,12 @@
 import AppRouter from "./AppRouter";
-import Header from "../src/Components/Header/Header";
+import Header from "./Components/Header/Header";
+
 
 
 const App = () => {
   return (
     <div>
-      <Header />
+      <Header/>
       <AppRouter />
     </div>
   );

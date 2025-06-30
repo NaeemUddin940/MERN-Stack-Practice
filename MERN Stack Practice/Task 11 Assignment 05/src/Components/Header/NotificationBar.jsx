@@ -1,4 +1,3 @@
-import React from "react";
 import GradientText from "../GradientText/GradientText";
 import ShinyText from "../ShinyText/ShinyText";
 
