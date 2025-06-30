@@ -31,7 +31,7 @@ export default function HeroSection() {
                 separator=","
                 direction="up"
                 duration={1}
-                className="count-up-text text-4xl md:text-2xl font-bold"
+                className="count-up-text text-4xl md:text-3xl font-bold"
               />
               <span className="text-4xl  md:text-3xl font-bold">+</span>
               <p className="text-gray-700">International Brands</p>

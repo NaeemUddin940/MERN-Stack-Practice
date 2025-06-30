@@ -1,18 +1,23 @@
-import { useState } from "react";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-const CartContex = createContext();
-
+const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
-  const [products, setProducts] = useState("a");
+  const [products, setProducts] = useState();
+  useEffect(() => {
+    fetch(`http://localhost:3000/products`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
   const state = {
     products,
   };
-  return <CartContextProvider value={state}>{children}</CartContextProvider>;
+
+  return <CartContext.Provider value={state}>{children}</CartContext.Provider>;
 };
 
 export const useCartContext = () => {
-  useContext(CartContex);
+  return useContext(CartContext);
 };
 
 export default CartContextProvider;

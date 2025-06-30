@@ -1,45 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { InteractiveHoverButton } from "../Components/ui/interactive-hover-button";
-
-const product = {
-  name: "Jenny’s Closets – The winter top for female, green",
-  price: 49,
-  originalPrice: 99,
-  description:
-    "Made with full cotton\nSlim fit for any body\nQuality control by JC",
-  colors: ["#059669", "#B13BFF", "#E67514", "#4300FF"],
-  image: "../../public/product.png",
-  thumbnails: [
-    "../../public/1.png",
-    "../../public/2.png",
-    "../../public/3.png",
-  ],
-  rating: 5,
-  reviews: [
-    {
-      name: "Kristin Watson",
-      date: "March 18, 2021",
-      review:
-        "You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the changes.",
-    },
-    {
-      name: "Jenny Wilson",
-      date: "January 28, 2021",
-      review:
-        "You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the changes.",
-    },
-    {
-      name: "Bessie Cooper",
-      date: "January 1, 2021",
-      review:
-        "You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the changes.",
-    },
-  ],
-};
+import { useParams } from "react-router";
 
 export default function ProductPage() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch(`http://localhost:3000/products/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setProduct(data);
+      setLoading(false);
+    });
+  }, [id]);
+  const [imgPreview, setImgPreview] = useState(null)
+  const [selectedColor, setSelectedColor] = useState(null);
+  if (loading) return <p>Loading...</p>;
+  if (!product) return <p>Product not found</p>;
 
   return (
     <>
@@ -48,10 +27,11 @@ export default function ProductPage() {
         <div className="grid grid-cols-4 grid-rows-4 gap-4">
           {/* Pc View Start */}
           <div className="lg:row-span-4 lg:flex lg:flex-col hidden lg:gap-4">
-            {product.thumbnails.map((src, i) => (
+            {product.thumbnail.map((src, i) => (
               <img
                 key={i}
                 src={src}
+                onClick={(e) => console.log(e) }
                 alt={`Thumbnail ${i + 1}`}
                 className="w-full h-20 object-cover rounded-xl cursor-pointer md:inline-flex border hover:border-black"
               />
@@ -61,7 +41,7 @@ export default function ProductPage() {
           <div className="col-span-4 row-span-3 lg:col-span-3 lg:row-span-4">
             <div className="aspect-square w-full">
               <img
-                src={product.image}
+              src={imgPreview === null ? product.image : imgPreview}
                 alt="Product"
                 className="w-full h-full object-cover rounded-xl"
               />
@@ -70,10 +50,11 @@ export default function ProductPage() {
 
           {/* Mobile View Start */}
           <div className="col-span-4 lg:hidden flex row-start-4 gap-5">
-            {product.thumbnails.map((src, i) => (
+            {product.thumbnail.map((src, i) => (
               <img
                 key={i}
                 src={src}
+                 onClick={(e) => setImgPreview(e.currentTarget.currentSrc) }
                 alt={`Thumbnail ${i + 1}`}
                 className="w-fit h-20 object-cover rounded-xl cursor-pointer md:inline-flex border hover:border-black"
               />
@@ -85,15 +66,15 @@ export default function ProductPage() {
 
         {/* Details */}
         <div>
-          <h2 className="text-2xl font-bold mb-2">{product.name}</h2>
+          <h2 className="text-2xl font-bold mb-2">{product.title}</h2>
           <div className="flex items-center gap-1 mb-4">
-            {[...Array(product.rating)].map((_, i) => (
+            {[...Array(Math.floor(product.rating))].map((_, i) => (
               <Star
                 key={i}
                 className="w-4 h-4 text-yellow-500 fill-yellow-500"
               />
             ))}
-            <span className="text-base text-gray-500">123 Reviews</span>
+            <span className="text-base text-gray-500">${product.rating}</span>
           </div>
 
           <div className="flex items-center gap-3 mb-4">
@@ -122,7 +103,7 @@ export default function ProductPage() {
                     key={color}
                     className={`w-6 h-6 rounded-full border-3 ${
                       selectedColor === color
-                        ? "border-black"
+                        ? "border-zinc-900"
                         : "border-gray-300"
                     }`}
                     style={{ backgroundColor: color }}
@@ -141,7 +122,7 @@ export default function ProductPage() {
         </div>
         {/* Details */}
 
-        <div className="lg:col-span-2 mt-10 px-5">
+        <div className="lg:col-span-2 mt-5 px-5">
           <h3 className="text-lg font-semibold mb-4">Reviews</h3>
           <div className="space-y-6">
             {product.reviews.map((r, i) => (
