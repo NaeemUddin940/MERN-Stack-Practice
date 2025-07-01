@@ -1,12 +1,11 @@
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { NavLink } from "react-router";
 import { Star } from "lucide-react";
-import { useState } from "react";
 import { useCartContext } from "../../Context/EcommerceContext";
 
 export function ThreeDCardDemo({ product }) {
   const { handleAddToCart, cart, handleRemoveCart } = useCartContext();
-  const [cartRemove, setCartRemove] = useState(true);
+
 
   return (
     <CardContainer className="cursor-pointer">

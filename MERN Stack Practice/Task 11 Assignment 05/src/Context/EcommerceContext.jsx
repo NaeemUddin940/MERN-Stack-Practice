@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import Loader from "../Components/Loading/Loader";
 
 const CartContext = createContext();
 
@@ -42,24 +43,25 @@ const CartContextProvider = ({ children }) => {
   );
 
   // Increment QUantity
-  const IncrementQuantity = (item) => {
+  const IncrementQuantity = useCallback((item) => {
     const updatedCart = cart.map((product) =>
       product.id === item.id
         ? { ...product, quantity: product.quantity + 1 }
         : product
     );
     setCart(updatedCart);
-  };
+  },[cart]);
 
   // Decrement Quantity
-  const DecrementQuantity = (item) => {
+  const DecrementQuantity = useCallback((item) => {
+    if(item.quantity <= 1) return
     const updatedCart = cart.map((product) =>
       product.id === item.id
         ? { ...product, quantity: product.quantity - 1 }
         : product
     );
     setCart(updatedCart);
-  };
+  },[cart]);
   // Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
@@ -86,7 +88,7 @@ const CartContextProvider = ({ children }) => {
 
   if (loading)
     return (
-      <p className="text-5xl font-bold text-center items-center">Loading...</p>
+      <div className="text-5xl h-full font-bold flex justify-center text-center items-center"><Loader/></div>
     );
   if (error) return <p>{error}</p>;
   if (!products.length) return <p>No products available.</p>;

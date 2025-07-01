@@ -1,16 +1,16 @@
 import { useCartContext } from "../Context/EcommerceContext";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
-export default function ShoppingCart() {
+function ShoppingCart() {
   const { cart, handleRemoveCart, IncrementQuantity, DecrementQuantity } = useCartContext();
   const cartLength = cart.length;
   const subTotal = useMemo(
     () => cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
     [cart]
   );
-
+console.log("Shoping Cart");
   return (
-    <div>
+    <div className="absolute">
       <h2 className="text-center text-lg font-semibold mb-3">
         Shopping Cart{" "}
         <span className="bg-gray-300 text-gray-600 rounded-full px-2 py-0.5 text-xs font-normal align-middle">
@@ -93,3 +93,5 @@ export default function ShoppingCart() {
     </div>
   );
 }
+
+export default React.memo(ShoppingCart)
