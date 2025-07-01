@@ -12,7 +12,6 @@ const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
   const [cart, setCart] = useState([]);
 
   // Add To Cart
@@ -42,31 +41,36 @@ const CartContextProvider = ({ children }) => {
     [cart]
   );
 
-  // Increment QUantity
-  const IncrementQuantity = useCallback((item) => {
-    const updatedCart = cart.map((product) =>
-      product.id === item.id
-        ? { ...product, quantity: product.quantity + 1 }
-        : product
-    );
-    setCart(updatedCart);
-  },[cart]);
+  // Increment Quantity
+  const IncrementQuantity = useCallback(
+    (item) => {
+      const updatedCart = cart.map((product) =>
+        product.id === item.id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      );
+      setCart(updatedCart);
+    },
+    [cart]
+  );
 
   // Decrement Quantity
-  const DecrementQuantity = useCallback((item) => {
-    if(item.quantity <= 1) return
-    const updatedCart = cart.map((product) =>
-      product.id === item.id
-        ? { ...product, quantity: product.quantity - 1 }
-        : product
-    );
-    setCart(updatedCart);
-  },[cart]);
+  const DecrementQuantity = useCallback(
+    (item) => {
+      if (item.quantity <= 1) return;
+      const updatedCart = cart.map((product) =>
+        product.id === item.id
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      );
+      setCart(updatedCart);
+    },
+    [cart]
+  );
   // Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
-      setError(null);
 
       try {
         const response = await fetch("http://localhost:3000/products");
@@ -88,9 +92,10 @@ const CartContextProvider = ({ children }) => {
 
   if (loading)
     return (
-      <div className="text-5xl h-full font-bold flex justify-center text-center items-center"><Loader/></div>
+      <div className="text-5xl h-full font-bold flex justify-center text-center items-center">
+        <Loader />
+      </div>
     );
-  if (error) return <p>{error}</p>;
   if (!products.length) return <p>No products available.</p>;
 
   const state = {

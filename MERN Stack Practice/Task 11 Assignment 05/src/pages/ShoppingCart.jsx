@@ -2,15 +2,15 @@ import { useCartContext } from "../Context/EcommerceContext";
 import React, { useMemo } from "react";
 
 function ShoppingCart() {
-  const { cart, handleRemoveCart, IncrementQuantity, DecrementQuantity } = useCartContext();
+  const { cart, handleRemoveCart, IncrementQuantity, DecrementQuantity } =
+    useCartContext();
   const cartLength = cart.length;
   const subTotal = useMemo(
     () => cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
     [cart]
   );
-console.log("Shoping Cart");
   return (
-    <div className="absolute">
+    <div className="">
       <h2 className="text-center text-lg font-semibold mb-3">
         Shopping Cart{" "}
         <span className="bg-gray-300 text-gray-600 rounded-full px-2 py-0.5 text-xs font-normal align-middle">
@@ -18,7 +18,7 @@ console.log("Shoping Cart");
         </span>
       </h2>
 
-      <div className=" mb-6 w-100">
+      <div className=" mb-6 w-full">
         <div className="overflow-y-auto h-100">
           {/* Product 1 */}
           {cart.length === 0 ? (
@@ -94,4 +94,4 @@ console.log("Shoping Cart");
   );
 }
 
-export default React.memo(ShoppingCart)
+export default React.memo(ShoppingCart);
