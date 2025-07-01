@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useCartContext } from "../../Context/EcommerceContext";
 
 export function ThreeDCardDemo({ product }) {
-  const {handleAddToCart} = useCartContext()
+  const { handleAddToCart, cart, handleRemoveCart } = useCartContext();
   const [cartRemove, setCartRemove] = useState(true);
 
   return (
@@ -55,20 +55,26 @@ export function ThreeDCardDemo({ product }) {
           </CardItem>
         </NavLink>
         <div className="flex justify-between items-center mt-3">
-          <CardItem
-            translateZ={20}
-            as="button"
-            onClick={() => {
-              setCartRemove((prev) => !prev);
-              handleAddToCart(product)
-            }}
-            className={`px-4  py-3 cursor-pointer rounded-xl ${
-              cartRemove
-                ? "bg-green-500 text-white"
-                : "bg-red-400 text-black Cart"
-            } dark:bg-white dark:text-black  text-xs font-bold`}>
-            {cartRemove ? "Add To Cart" : "Remove Cart"}
-          </CardItem>
+          {cart.find(item => item.id === product.id) ? (
+            <CardItem
+              translateZ={20}
+              as="button"
+              onClick={() => {
+                handleRemoveCart(product.id);
+              }}
+              className="px-4  py-3 cursor-pointer rounded-xl bg-red-400 text-black Cart dark:bg-white dark:text-black  text-xs font-bold">
+              Remove Cart
+            </CardItem>
+          ) : (
+            <CardItem
+              translateZ={20}
+              as="button"
+              onClick={() => handleAddToCart(product)}
+              className="px-4  py-3 cursor-pointer rounded-xl bg-green-500 text-white dark:bg-white dark:text-black  text-xs font-bold">
+              Add To Cart
+            </CardItem>
+          )}
+
           <CardItem
             translateZ={20}
             as="button"

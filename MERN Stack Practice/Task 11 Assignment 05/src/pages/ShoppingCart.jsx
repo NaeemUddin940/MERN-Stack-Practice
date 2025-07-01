@@ -1,5 +1,5 @@
 import { useCartContext } from "../Context/EcommerceContext";
-import { useEffect, useState, useMemo } from "react";
+import { useMemo } from "react";
 
 export default function ShoppingCart() {
   const { cart, handleAddToCart, handleRemoveCart } = useCartContext();
@@ -8,7 +8,6 @@ export default function ShoppingCart() {
     () => cart.reduce((sum, item) => sum + item.price, 0),
     [cart]
   );
-
   return (
     <div>
       <h2 className="text-center text-lg font-semibold mb-3">
@@ -27,7 +26,7 @@ export default function ShoppingCart() {
             </div>
           ) : (
             cart.map((item) => (
-              <div key={item.id} className="flex gap-4">
+              <div key={item.id} className="flex gap-4 h">
                 <img
                   src={item.image}
                   alt={item.title}
