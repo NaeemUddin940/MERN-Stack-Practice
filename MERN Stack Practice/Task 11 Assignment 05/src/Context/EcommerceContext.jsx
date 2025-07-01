@@ -14,28 +14,52 @@ const CartContextProvider = ({ children }) => {
   const [error, setError] = useState(false);
   const [cart, setCart] = useState([]);
 
-
   // Add To Cart
-  const handleAddToCart = useCallback((product) => {
-    const existProduct = cart.find((item) => item.id === product.id);
-    if (existProduct) {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    }
-  }, [cart]);
+  const handleAddToCart = useCallback(
+    (product) => {
+      const existProduct = cart.find((item) => item.id === product.id);
+      if (existProduct) {
+        setCart(
+          cart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        );
+      } else {
+        setCart([...cart, { ...product, quantity: 1 }]);
+      }
+    },
+    [cart]
+  );
 
   // Remove From Cart
-  const handleRemoveCart = useCallback((id) => {
-    setCart(cart.filter((item) => item.id !== id));
-  }, [cart]);
+  const handleRemoveCart = useCallback(
+    (id) => {
+      setCart(cart.filter((item) => item.id !== id));
+    },
+    [cart]
+  );
 
+  // Increment QUantity
+  const IncrementQuantity = (item) => {
+    const updatedCart = cart.map((product) =>
+      product.id === item.id
+        ? { ...product, quantity: product.quantity + 1 }
+        : product
+    );
+    setCart(updatedCart);
+  };
+
+  // Decrement Quantity
+  const DecrementQuantity = (item) => {
+    const updatedCart = cart.map((product) =>
+      product.id === item.id
+        ? { ...product, quantity: product.quantity - 1 }
+        : product
+    );
+    setCart(updatedCart);
+  };
   // Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
@@ -74,6 +98,8 @@ const CartContextProvider = ({ children }) => {
     setCart,
     handleAddToCart,
     handleRemoveCart,
+    IncrementQuantity,
+    DecrementQuantity,
   };
 
   return <CartContext.Provider value={state}>{children}</CartContext.Provider>;

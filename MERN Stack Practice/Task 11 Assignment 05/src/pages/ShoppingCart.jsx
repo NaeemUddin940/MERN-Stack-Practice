@@ -2,12 +2,13 @@ import { useCartContext } from "../Context/EcommerceContext";
 import { useMemo } from "react";
 
 export default function ShoppingCart() {
-  const { cart, handleAddToCart, handleRemoveCart } = useCartContext();
+  const { cart, handleRemoveCart, IncrementQuantity, DecrementQuantity } = useCartContext();
   const cartLength = cart.length;
   const subTotal = useMemo(
-    () => cart.reduce((sum, item) => sum + item.price, 0),
+    () => cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
     [cart]
   );
+
   return (
     <div>
       <h2 className="text-center text-lg font-semibold mb-3">
@@ -40,7 +41,7 @@ export default function ShoppingCart() {
                 </div>
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={() => handleAddToCart(item.id)}
+                    onClick={() => IncrementQuantity(item)}
                     className="bg-gray-200 font-black active:bg-gray-400 cursor-pointer py-1 px-2 rounded-md">
                     +
                   </button>
@@ -48,7 +49,7 @@ export default function ShoppingCart() {
                     <p className="font-bold">{item.quantity}</p>
                   </div>
                   <button
-                    onClick={() => handleRemoveCart(item.id)}
+                    onClick={() => DecrementQuantity(item)}
                     className="bg-gray-200 font-black active:bg-gray-400 cursor-pointer py-1 px-2.5 rounded-md">
                     -
                   </button>
