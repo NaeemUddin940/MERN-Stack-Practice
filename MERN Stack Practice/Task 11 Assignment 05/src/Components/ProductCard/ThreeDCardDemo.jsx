@@ -2,12 +2,15 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { NavLink } from "react-router";
 import { Star } from "lucide-react";
 import { useState } from "react";
+import { useCartContext } from "../../Context/EcommerceContext";
 
 export function ThreeDCardDemo({ product }) {
+  const {handleAddToCart} = useCartContext()
   const [cartRemove, setCartRemove] = useState(true);
+
   return (
     <CardContainer className="cursor-pointer">
-      <CardBody className="bg-gray-50 relative group/card py-4 dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[15rem] md:h-[26rem] md:w-[23rem] h-[28rem] rounded-xl p-5 border  ">
+      <CardBody className="bg-gray-50 relative group/card py-4 dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  rounded-xl p-5 border h-105 w-full">
         <NavLink to={`/product-details/${product.id}`}>
           <CardItem translateZ="100">
             <img
@@ -27,14 +30,19 @@ export function ThreeDCardDemo({ product }) {
             as="p"
             translateZ="50"
             className="text-neutral-500 flex items-center justify-center text-sm max-w-sm mt-2 dark:text-neutral-300">
-            {[...Array(Math.floor(product.rating))].map((_, i) => (
-              <Star
-                key={i}
-                className="w-4 h-4 text-yellow-500 flex fill-yellow-500"
-              />
-            ))}
-            <span className="pl-3">{product.rating}</span>
+            <>
+              {[...Array(Math.max(0, Math.floor(product?.rating || 0)))].map(
+                (_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 text-yellow-500 fill-yellow-500"
+                  />
+                )
+              )}
+              <span className="pl-3">{product?.rating ?? 0}</span>
+            </>
           </CardItem>
+
           <CardItem
             as="p"
             translateZ="60"
@@ -52,11 +60,11 @@ export function ThreeDCardDemo({ product }) {
             as="button"
             onClick={() => {
               setCartRemove((prev) => !prev);
-              
+              handleAddToCart(product)
             }}
             className={`px-4  py-3 cursor-pointer rounded-xl ${
               cartRemove
-                ? "bg-emerald-500 text-white"
+                ? "bg-green-500 text-white"
                 : "bg-red-400 text-black Cart"
             } dark:bg-white dark:text-black  text-xs font-bold`}>
             {cartRemove ? "Add To Cart" : "Remove Cart"}

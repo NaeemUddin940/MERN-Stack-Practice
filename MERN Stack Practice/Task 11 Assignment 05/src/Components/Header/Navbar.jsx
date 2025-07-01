@@ -11,7 +11,8 @@ import ShoppingCart from "../../pages/ShoppingCart";
 import { useCartContext } from "../../Context/EcommerceContext";
 
 const Navbar = () => {
-  const { products } = useCartContext();
+  const { cart } = useCartContext();
+  const cartLength = cart.length
   return (
     <div>
       <div className="flex bg-base-100 md:shadow-sm lg:px-20 md:px-10 px-5">
@@ -100,13 +101,13 @@ const Navbar = () => {
                     <div
                       id="cart"
                       className="bg-red-400 absolute -top-1 -right-1 h-4 w-4 flex justify-center items-center rounded-full">
-                      <p className="text-[12px] font-bold">0</p>
+                      <p className="text-[12px] font-bold">{cartLength}</p>
                     </div>
                   </div>
                 </motion.span>
               </Button>
             </MorphingPopoverTrigger>
-            <MorphingPopoverContent className="w-100 h-160 bg-gray-500 text-gray-100 top-0 right-0 p-4 flex justify-center items-center z-1 shadow-sm">
+            <MorphingPopoverContent className="w-110 h-160 bg-gray-100 text-black top-0 right-0 p-4 flex justify-center items-center z-1 shadow-sm">
               <ShoppingCart />
             </MorphingPopoverContent>
           </MorphingPopover>

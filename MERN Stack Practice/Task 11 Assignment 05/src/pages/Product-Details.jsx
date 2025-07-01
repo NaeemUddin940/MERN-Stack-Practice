@@ -6,18 +6,35 @@ import { useParams } from "react-router";
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      setProduct(data);
-      setLoading(false);
-    });
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch(`http://localhost:3000/products/${id}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setProduct(data);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+        setError("Failed to load products.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [id]);
-  const [imgPreview, setImgPreview] = useState(null)
+  const [imgPreview, setImgPreview] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
-  // if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
   if (!product) return <p>Product not found</p>;
 
   return (
@@ -31,7 +48,7 @@ export default function ProductPage() {
               <img
                 key={i}
                 src={src}
-                onClick={(e) => console.log(e) }
+                onClick={(e) => setImgPreview(e.currentTarget.currentSrc)}
                 alt={`Thumbnail ${i + 1}`}
                 className="w-full h-20 object-cover rounded-xl cursor-pointer md:inline-flex border hover:border-black"
               />
@@ -41,7 +58,7 @@ export default function ProductPage() {
           <div className="col-span-4 row-span-3 lg:col-span-3 lg:row-span-4">
             <div className="aspect-square w-full">
               <img
-              src={imgPreview === null ? product.image : imgPreview}
+                src={imgPreview === null ? product.image : imgPreview}
                 alt="Product"
                 className="w-full h-full object-cover rounded-xl"
               />
@@ -54,7 +71,7 @@ export default function ProductPage() {
               <img
                 key={i}
                 src={src}
-                 onClick={(e) => setImgPreview(e.currentTarget.currentSrc) }
+                onClick={(e) => setImgPreview(e.currentTarget.currentSrc)}
                 alt={`Thumbnail ${i + 1}`}
                 className="w-fit h-20 object-cover rounded-xl cursor-pointer md:inline-flex border hover:border-black"
               />
@@ -138,6 +155,7 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
+      {/* <LodingAnimation/> */}
     </>
   );
 }
