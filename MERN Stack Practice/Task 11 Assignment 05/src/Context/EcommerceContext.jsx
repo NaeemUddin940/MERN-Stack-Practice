@@ -13,6 +13,29 @@ const CartContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  // Fetch Products
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+
+      try {
+        const response = await fetch("http://localhost:3000/products");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setProducts(data);
+        setAllProducts(data);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   // Add To Cart
   const handleAddToCart = useCallback(
@@ -67,27 +90,20 @@ const CartContextProvider = ({ children }) => {
     },
     [cart]
   );
-  // Fetch Products
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
 
-      try {
-        const response = await fetch("http://localhost:3000/products");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setProducts(data);
-      } catch (err) {
-        console.error("Failed to fetch products:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // This is Debounce Function
+  function useDebounce(value, delay) {
+    const [debounced, setDebounced] = useState(value);
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setDebounced(value);
+      }, delay);
 
-    fetchProducts();
-  }, []);
+      return () => clearTimeout(timer);
+    }, [value, delay]);
+
+    return debounced;
+  }
 
   if (loading)
     return (
@@ -105,6 +121,9 @@ const CartContextProvider = ({ children }) => {
     handleRemoveCart,
     IncrementQuantity,
     DecrementQuantity,
+    useDebounce,
+    setProducts,
+    allProducts,
   };
 
   return <CartContext.Provider value={state}>{children}</CartContext.Provider>;
