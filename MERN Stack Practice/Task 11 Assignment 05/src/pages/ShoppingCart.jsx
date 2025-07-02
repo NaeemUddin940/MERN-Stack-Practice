@@ -1,10 +1,11 @@
 import { InteractiveHoverButton } from "../Components/ui/interactive-hover-button";
 import { useCartContext } from "../Context/EcommerceContext";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 
 function ShoppingCart() {
   const { cart, handleRemoveCart, IncrementQuantity, DecrementQuantity } =
     useCartContext();
+
   const cartLength = cart.length;
   const subTotal = useMemo(
     () => cart.reduce((sum, item) => sum + item.price * item.quantity, 0),

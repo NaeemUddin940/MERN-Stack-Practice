@@ -1,74 +1,82 @@
 import { Link, NavLink } from "react-router";
 import Input from "../animate-ui/InputButton/Input";
-
 import ShoppingCart from "../../pages/ShoppingCart";
 import { useCartContext } from "../../Context/EcommerceContext";
+import FilterSIdebar from '../../FIlterBar/FilterSidebar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "../animate-ui/base/popover";
-import {Switch } from "../ui/switch";
+import { Switch } from "../ui/switch";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { cart } = useCartContext();
   const cartLength = cart.length;
 
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
-    const [isDarkMode, setIsDarkMode] = useState(true);
-    
-  
-    useEffect(() => {
-      if (isDarkMode) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    }, [isDarkMode]);
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
   return (
     <div>
       <div className="flex  bg-base-100 dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="pr-4 cursor-pointer lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
+            <div className="drawer">
+              <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+              <div className="drawer-content">
+                {/* Page content here */}
+                <label
+                  htmlFor="my-drawer"
+                  className="dark:bg-violet-500 btn p-2 rounded-xl mr-4 drawer-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+                    />
+                  </svg>
+                </label>
+              </div>
+              <div className="drawer-side">
+                <label
+                  htmlFor="my-drawer"
+                  aria-label="close sidebar"
+                  className="drawer-overlay"></label>
+                 <FilterSIdebar/>
+                <ul className="menu bg-base-200 text-base-content md:hidden dark:bg-zinc-950 dark:text-gray-200 min-h-full w-60 p-4">
+                  {/* Sidebar content here */}
+                  <li className=" font-bold">
+                    <NavLink to="/" className={"text-2xl"}>
+                      Home
+                    </NavLink>
+                  </li>
+                  <li className=" font-bold">
+                    <NavLink className={"text-2xl"} to="/about">
+                      About
+                    </NavLink>
+                  </li>
+                  <li className=" font-bold">
+                    <NavLink className={"text-2xl"} to="/shop">
+                      Shop
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 h-50 w-50 p-2 shadow">
-              <li className=" font-bold">
-                <NavLink to="/" className={"text-2xl"}>
-                  Home
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink className={"text-2xl"} to="/about">
-                  About
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink className={"text-2xl"} to="/shop">
-                  Shop
-                </NavLink>
-              </li>
-            </ul>
           </div>
           <Link to="/" className="text-3xl font-bold">
             Exclusive
@@ -91,12 +99,12 @@ const Navbar = () => {
 
         <div className="navbar-end">
           <Input />
-           <Switch
-           className="ml-3 hidden md:block"
-                id="dark-mode"
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-              />
+          <Switch
+            className="ml-3 hidden md:block"
+            id="dark-mode"
+            checked={isDarkMode}
+            onCheckedChange={setIsDarkMode}
+          />
           <Popover>
             <PopoverTrigger>
               <div className="pl-5 relative w-full flex justify-center items-center">
