@@ -14,7 +14,7 @@ export default function ProductSection({ title, filterFn }) {
 
   return (
     <div className="flex flex-col space-y-5 px-5 justify-center items-center">
-      <h3 className="text-3xl my-5 font-semibold text-center">{title}</h3>
+      <h3 className="text-4xl my-5 font-bold text-center">{title}</h3>
       <div className="grid gap-6 px-5 w-full mx-auto grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
         {visibleItem.length > 0 ? (
           visibleItem.map((p) => <ThreeDCardDemo key={p.id} product={p} />)
@@ -23,7 +23,7 @@ export default function ProductSection({ title, filterFn }) {
         )}
       </div>
       {hasMore && (
-        <InteractiveHoverButton onClick={loadMore} text="Load More" />
+        <InteractiveHoverButton className="mb-5" onClick={loadMore} text="Load More" />
       )}
     </div>
   );

@@ -8,13 +8,27 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "../animate-ui/base/popover";
+import {Switch } from "../ui/switch";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { cart } = useCartContext();
   const cartLength = cart.length;
+
+
+    const [isDarkMode, setIsDarkMode] = useState(true);
+    
+  
+    useEffect(() => {
+      if (isDarkMode) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }, [isDarkMode]);
   return (
     <div>
-      <div className="flex bg-base-100 md:shadow-sm lg:px-20 md:px-10 px-5">
+      <div className="flex bg-base-100 dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -77,6 +91,12 @@ const Navbar = () => {
 
         <div className="navbar-end">
           <Input />
+           <Switch
+           className="ml-3 hidden md:block"
+                id="dark-mode"
+                checked={isDarkMode}
+                onCheckedChange={setIsDarkMode}
+              />
           <Popover>
             <PopoverTrigger>
               <div className="pl-5 relative w-full flex justify-center items-center">

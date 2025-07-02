@@ -2,14 +2,12 @@ import { Link } from "react-router";
 import HeroSection from "../Components/HeroSection/HeroSection";
 import { Marquee } from "../Components/magicui/marquee";
 import ProductSection from "../Components/Reusable/ProductSection";
-// import { useCartContext } from "../Context/EcommerceContext";
+import { Footerdemo } from "../../src/Components/ui/footer-section";
 
 export default function Home() {
-    // const { products } = useCartContext();
-
   return (
     <>
-      <div className="px-5 bg-[#F2F0F1]">
+      <div className="px-5">
         <HeroSection />
       </div>
       <Marquee reverse={true} className="bg-zinc-800 text-indigo-200 px-5">
@@ -20,6 +18,7 @@ export default function Home() {
         <Link className="text-5xl font-bold px-4 py-5">ZARA</Link>
         <Link className="text-5xl font-bold px-4 py-5">Calvin Klein</Link>
       </Marquee>
+
       <ProductSection
         title="New Arrival"
         filterFn={(product) => product.isNew === true}
@@ -40,6 +39,7 @@ export default function Home() {
         title="Watch"
         filterFn={(product) => product.catagory === "watch"}
       />
+      <Footerdemo />
     </>
   );
 }
