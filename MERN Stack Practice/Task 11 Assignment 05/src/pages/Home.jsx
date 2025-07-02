@@ -20,17 +20,16 @@ export default function Home() {
         <Link className="text-5xl font-bold px-4 py-5">ZARA</Link>
         <Link className="text-5xl font-bold px-4 py-5">Calvin Klein</Link>
       </Marquee>
-
-      {!products.length ? (
-        <p>No products available.</p>
-      ) : (
+      <div>
+        <h3 className="text-3xl my-5 font-semibold text-center">New Arrival</h3>
         <div className="grid gap-6 px-5 w-full mx-auto grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
-          {Array.isArray(products) &&
-            products.map((product) => {
-              return <ThreeDCardDemo key={product.id} product={product} />;
-            })}
+          {products
+            .filter((p) => p.isNew === true)
+            .map((p) => (
+              <ThreeDCardDemo key={p.id} product={p} />
+            ))}
         </div>
-      )}
+      </div>
     </>
   );
 }

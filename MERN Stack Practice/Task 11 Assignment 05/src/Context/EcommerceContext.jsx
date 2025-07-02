@@ -14,6 +14,8 @@ const CartContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
+
+  
   // Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
