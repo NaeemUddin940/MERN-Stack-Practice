@@ -27,7 +27,7 @@ const Input = () => {
         name="text"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        className="input"
+        className="input dark:bg-gray-800 placeholder:text-black dark:border-2 dark:border-gray-200 dark:placeholder:text-white bg-gray-100 text-black dark:text-white"
         placeholder="Search Here....."
       />
     </StyledWrapper>
@@ -41,19 +41,14 @@ const StyledWrapper = styled.div`
       "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 15px;
-    color: #000;
-    background-color: #fff;
     box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
     border-radius: 30px;
     margin: 3px 0;
-    border: 2px solid #000;
     outline: none;
     width: 200px;
     transition: 0.4s;
   }
-  ::placeholder {
-    color: #393e46;
-  }
+
   .input:hover {
     box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
   }

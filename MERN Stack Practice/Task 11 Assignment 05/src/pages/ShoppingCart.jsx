@@ -1,3 +1,4 @@
+import { InteractiveHoverButton } from "../Components/ui/interactive-hover-button";
 import { useCartContext } from "../Context/EcommerceContext";
 import React, { useMemo } from "react";
 
@@ -42,7 +43,7 @@ function ShoppingCart() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => IncrementQuantity(item)}
-                    className="bg-gray-200 font-black active:bg-gray-400 cursor-pointer py-1 px-2 rounded-md">
+                    className="bg-gray-200 font-black dark:bg-zinc-800 dark:active:bg-black active:bg-gray-400 cursor-pointer py-1 px-2 rounded-md">
                     +
                   </button>
                   <div className="border border-gray-300 rounded px-2 py-1 text-sm cursor-pointer">
@@ -50,7 +51,7 @@ function ShoppingCart() {
                   </div>
                   <button
                     onClick={() => DecrementQuantity(item)}
-                    className="bg-gray-200 font-black active:bg-gray-400 cursor-pointer py-1 px-2.5 rounded-md">
+                    className="bg-gray-200 dark:bg-zinc-800 dark:active:bg-black font-black active:bg-gray-400 cursor-pointer py-1 px-2.5 rounded-md">
                     -
                   </button>
                   <p className="font-semibold">${item.price}</p>
@@ -83,9 +84,12 @@ function ShoppingCart() {
         <span>${subTotal.toFixed(2)}</span>
       </div>
 
-      <button className="w-full bg-black text-white py-3 rounded-lg mt-3 font-semibold hover:bg-gray-800 transition">
+      {/* <button className="w-full bg-black text-white py-3 rounded-lg mt-3 font-semibold hover:bg-gray-800 transition">
         Continue to Payment
-      </button>
+      </button> */}
+      <div className="flex justify-center items-center">
+        <InteractiveHoverButton text="Continue to Payment" rounded='xl' />
+      </div>
 
       <p className="text-center text-xs text-gray-400 mt-2">
         All the taxes will be calculated while checkout

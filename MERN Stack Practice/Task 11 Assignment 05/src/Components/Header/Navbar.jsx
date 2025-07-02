@@ -28,7 +28,7 @@ const Navbar = () => {
     }, [isDarkMode]);
   return (
     <div>
-      <div className="flex bg-base-100 dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5">
+      <div className="flex  bg-base-100 dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div

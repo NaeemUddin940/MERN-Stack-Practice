@@ -61,7 +61,7 @@ export function ThreeDCardDemo({ product }) {
               onClick={() => {
                 handleRemoveCart(product.id);
               }}
-              className="px-4  py-3 cursor-pointer rounded-xl bg-red-400 text-black Cart dark:bg-white dark:text-black  text-xs font-bold">
+              className="px-4  py-3 cursor-pointer rounded-xl bg-red-400 text-black Cart dark:bg-red-400 dark:text-black  text-xs font-bold">
               Remove Cart
             </CardItem>
           ) : (
@@ -69,7 +69,7 @@ export function ThreeDCardDemo({ product }) {
               translateZ={20}
               as="button"
               onClick={() => handleAddToCart(product)}
-              className="px-4  py-3 cursor-pointer rounded-xl bg-green-500 text-white dark:bg-white dark:text-black  text-xs font-bold">
+              className="px-4  py-3 cursor-pointer rounded-xl dark:bg-violet-500 bg-green-500 text-white dark:text-black  text-xs font-bold">
               Add To Cart
             </CardItem>
           )}

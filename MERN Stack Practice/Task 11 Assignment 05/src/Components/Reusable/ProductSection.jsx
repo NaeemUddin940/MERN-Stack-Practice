@@ -23,7 +23,7 @@ export default function ProductSection({ title, filterFn }) {
         )}
       </div>
       {hasMore && (
-        <InteractiveHoverButton className="mb-5" onClick={loadMore} text="Load More" />
+        <InteractiveHoverButton className="mb-5" onClick={loadMore} text="Load More" rounded='2xl' />
       )}
     </div>
   );

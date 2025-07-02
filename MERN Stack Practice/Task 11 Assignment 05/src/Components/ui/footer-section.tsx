@@ -19,10 +19,10 @@ import {
   Sun,
   Twitter,
 } from "lucide-react";
+import { Link } from "react-router";
 
 function Footerdemo() {
   const [isDarkMode, setIsDarkMode] = React.useState(true);
-  const [isChatOpen, setIsChatOpen] = React.useState(false);
 
   React.useEffect(() => {
     if (isDarkMode) {
@@ -38,7 +38,7 @@ function Footerdemo() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
             <h2 className="mb-4 text-3xl font-bold tracking-tight">
-              Stay Connected
+              Exclusive Products
             </h2>
             <p className="mb-6 text-muted-foreground">
               Join our newsletter for the latest updates and exclusive offers.
@@ -53,49 +53,49 @@ function Footerdemo() {
                 type="submit"
                 size="icon"
                 className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105">
-                <Send className="h-4 w-4" />
+                <Send className="h-5 w-5 absolute top-2 left-1" />
                 <span className="sr-only">Subscribe</span>
               </Button>
             </form>
-            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+            <div className="absolute -right-3 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <nav className="space-y-2 text-sm">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="block transition-colors hover:text-primary">
                 Home
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/about"
                 className="block transition-colors hover:text-primary">
                 About Us
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/shop"
                 className="block transition-colors hover:text-primary">
-                Services
-              </a>
-              <a
-                href="#"
+                Shop
+              </Link>
+              <Link
+                to="/shop"
                 className="block transition-colors hover:text-primary">
                 Products
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="block transition-colors hover:text-primary">
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>123 Innovation Street</p>
-              <p>Tech City, TC 12345</p>
-              <p>Phone: (123) 456-7890</p>
-              <p>Email: hello@example.com</p>
+              <p>Shakoya, Keshorhat, Mohonpur, Rajshahi</p>
+              <p>Rajshahi City, RC 12345</p>
+              <p>Phone: (+880) 1311078039</p>
+              <p>Email: mdnaeemuddin14@gmail.com</p>
             </address>
           </div>
           <div className="relative">
@@ -104,13 +104,15 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full">
-                      <Facebook className="h-4 w-4" />
-                      <span className="sr-only">Facebook</span>
-                    </Button>
+                    <a href="https://www.facebook.com/Naeem.uddin.128">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full">
+                        <Facebook className="h-6 w-6 hover:text-violet-500 cursor-pointer" />
+                        <span className="sr-only ">Facebook</span>
+                      </Button>
+                    </a>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Follow us on Facebook</p>
@@ -120,13 +122,15 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full">
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
-                    </Button>
+                    <a href="https://x.com/home">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full">
+                        <Twitter className="h-6 w-6 hover:text-violet-500 cursor-pointer" />
+                        <span className="sr-only">Twitter</span>
+                      </Button>
+                    </a>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Follow us on Twitter</p>
@@ -140,7 +144,7 @@ function Footerdemo() {
                       variant="outline"
                       size="icon"
                       className="rounded-full">
-                      <Instagram className="h-4 w-4" />
+                      <Instagram className="h-6 w-6 hover:text-violet-500 cursor-pointer" />
                       <span className="sr-only">Instagram</span>
                     </Button>
                   </TooltipTrigger>
@@ -152,13 +156,15 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full">
-                      <Linkedin className="h-4 w-4" />
-                      <span className="sr-only">LinkedIn</span>
-                    </Button>
+                    <a href="https://www.linkedin.com/in/md-naeem-uddin-9084b6297/">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full">
+                        <Linkedin className="h-6 w-6 hover:text-violet-500 cursor-pointer" />
+                        <span className="sr-only">LinkedIn</span>
+                      </Button>
+                    </a>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Connect with us on LinkedIn</p>

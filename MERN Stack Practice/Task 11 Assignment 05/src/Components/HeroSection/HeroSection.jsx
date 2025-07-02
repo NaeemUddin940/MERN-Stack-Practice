@@ -21,7 +21,7 @@ export default function HeroSection() {
           designed to bring out your individuality{" "}
           <br className="hidden md:flex lg:hidden" /> and cater to your sense of style.
         </p>
-        <InteractiveHoverButton text="Shop Now" path='/shop' />
+        <InteractiveHoverButton text="Shop Now" path='/shop' rounded="full" />
         <div className="">
           <div className="grid grid-cols-3 grid-rows-1 text-center gap-3 ">
             <div className="md:border-2 md:hidden lg:block md:border-zinc-500 px-5 py-3 rounded-xl">

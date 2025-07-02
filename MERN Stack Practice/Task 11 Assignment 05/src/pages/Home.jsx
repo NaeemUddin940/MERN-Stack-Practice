@@ -2,7 +2,8 @@ import { Link } from "react-router";
 import HeroSection from "../Components/HeroSection/HeroSection";
 import { Marquee } from "../Components/magicui/marquee";
 import ProductSection from "../Components/Reusable/ProductSection";
-import { Footerdemo } from "../../src/Components/ui/footer-section";
+// import { Footerdemo } from "../../src/Components/ui/footer-section";
+import {TabDemo} from "../Components/ui/tabs-like-bookmark"
 
 export default function Home() {
   return (
@@ -18,28 +19,9 @@ export default function Home() {
         <Link className="text-5xl font-bold px-4 py-5">ZARA</Link>
         <Link className="text-5xl font-bold px-4 py-5">Calvin Klein</Link>
       </Marquee>
-
-      <ProductSection
-        title="New Arrival"
-        filterFn={(product) => product.isNew === true}
-      />
-      <ProductSection
-        title="T-shirt"
-        filterFn={(product) => product.catagory === "t-shirt"}
-      />
-      <ProductSection
-        title="Shirt"
-        filterFn={(product) => product.catagory === "shirt"}
-      />
-      <ProductSection
-        title="Shoes"
-        filterFn={(product) => product.catagory === "shoes"}
-      />
-      <ProductSection
-        title="Watch"
-        filterFn={(product) => product.catagory === "watch"}
-      />
-      <Footerdemo />
+      <div className="block">
+        <TabDemo />
+      </div>
     </>
   );
 }

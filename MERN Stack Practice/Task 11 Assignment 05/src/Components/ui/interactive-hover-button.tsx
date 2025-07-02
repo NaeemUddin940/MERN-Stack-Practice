@@ -11,12 +11,12 @@ interface InteractiveHoverButtonProps
 const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ text, path, className, ...props }, ref) => {
+>(({ text, path,rounded, className, ...props }, ref) => {
   return (
     <button
       ref={ref}
       className={cn(
-        "group relative w-full md:w-40 cursor-pointer overflow-hidden rounded-full border-3 border-black bg-background p-2 text-center font-semibold",
+        `group relative w-full md:w-90 cursor-pointer overflow-hidden rounded-${rounded} border-3 dark:border-violet-500 border-black bg-background p-2 text-center font-semibold`,
         className
       )}
       {...props}>
@@ -27,7 +27,7 @@ const InteractiveHoverButton = React.forwardRef<
         <Link to={path}>{text}</Link>
         <ArrowRight />
       </div>
-      <div className="absolute left-[15%] top-[40%] h-2 w-2 scale-[1] rounded-lg bg-primary transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-primary"></div>
+      <div className="absolute left-[15%] top-[40%] h-2 w-2 scale-[1] rounded-lg bg-primary transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] dark:group-hover:bg-violet-500"></div>
     </button>
   );
 });
