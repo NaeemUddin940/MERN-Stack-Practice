@@ -81,7 +81,6 @@ const CartContextProvider = ({ children }) => {
         setProducts(data);
       } catch (err) {
         console.error("Failed to fetch products:", err);
-        setError("Failed to load products.");
       } finally {
         setLoading(false);
       }
@@ -96,7 +95,6 @@ const CartContextProvider = ({ children }) => {
         <Loader />
       </div>
     );
-  if (!products.length) return <p>No products available.</p>;
 
   const state = {
     products,

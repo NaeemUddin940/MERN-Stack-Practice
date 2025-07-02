@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { InteractiveHoverButton } from "../Components/ui/interactive-hover-button";
 import { useParams } from "react-router";
+import Loader from "../Components/Loading/Loader";
+import ErrorPage from "./Error/ErrorPage";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -22,8 +24,11 @@ export default function ProductPage() {
         const data = await response.json();
         setProduct(data);
       } catch (err) {
-        console.error("Failed to fetch products:", err);
-        setError("Failed to load products.");
+        if (id !== id.length) {
+          console.error("Failed to fetch products:", err);
+          return setError("Failed to load Products.");
+      
+        }
       } finally {
         setLoading(false);
       }
@@ -33,9 +38,14 @@ export default function ProductPage() {
   }, [id]);
   const [imgPreview, setImgPreview] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  if (!product) return <p>Product not found</p>;
+  if (loading)
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+ if(error) return <div><ErrorPage title="Failed To Load Products" des='the page you are looking for not avaible!'/></div>
+  if (!product) return <div><ErrorPage/></div>;
 
   return (
     <>
@@ -155,7 +165,7 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-      {/* <LodingAnimation/> */}
+      
     </>
   );
 }
