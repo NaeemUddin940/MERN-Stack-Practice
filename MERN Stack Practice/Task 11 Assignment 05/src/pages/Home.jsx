@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 import HeroSection from "../Components/HeroSection/HeroSection";
 import { Marquee } from "../Components/magicui/marquee";
-import { ThreeDCardDemo } from "../Components/ProductCard/ThreeDCardDemo";
-import { useCartContext } from "../Context/EcommerceContext";
+import ProductSection from "../Components/Reusable/ProductSection";
+// import { useCartContext } from "../Context/EcommerceContext";
 
 export default function Home() {
-  const { products } = useCartContext();
+    // const { products } = useCartContext();
 
   return (
     <>
@@ -20,16 +20,26 @@ export default function Home() {
         <Link className="text-5xl font-bold px-4 py-5">ZARA</Link>
         <Link className="text-5xl font-bold px-4 py-5">Calvin Klein</Link>
       </Marquee>
-      <div>
-        <h3 className="text-3xl my-5 font-semibold text-center">New Arrival</h3>
-        <div className="grid gap-6 px-5 w-full mx-auto grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
-          {products
-            .filter((p) => p.isNew === true)
-            .map((p) => (
-              <ThreeDCardDemo key={p.id} product={p} />
-            ))}
-        </div>
-      </div>
+      <ProductSection
+        title="New Arrival"
+        filterFn={(product) => product.isNew === true}
+      />
+      <ProductSection
+        title="T-shirt"
+        filterFn={(product) => product.catagory === "t-shirt"}
+      />
+      <ProductSection
+        title="Shirt"
+        filterFn={(product) => product.catagory === "shirt"}
+      />
+      <ProductSection
+        title="Shoes"
+        filterFn={(product) => product.catagory === "shoes"}
+      />
+      <ProductSection
+        title="Watch"
+        filterFn={(product) => product.catagory === "watch"}
+      />
     </>
   );
 }
