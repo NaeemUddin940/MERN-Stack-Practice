@@ -1,15 +1,15 @@
 import { ThreeDCardDemo } from "../Components/ProductCard/ThreeDCardDemo";
 import { useCartContext } from "../Context/EcommerceContext";
-import FilterSidebar from "../FIlterBar/FilterSidebar";
+import FilterSIdebar from "../FIlterBar/FilterSidebar";
 
 export default function Shop() {
   const { products } = useCartContext();
   return (
     <div className="grid">
       <div className="flex">
-        <div className="hidden md:block">
-          <FilterSidebar />
-        </div>
+        <aside className="hidden md:block">
+          <FilterSIdebar />
+        </aside>
         <div className="overflow-auto h-200 w-full scrollbar-hide">
           {!products.length ? (
             <p>No products available.</p>

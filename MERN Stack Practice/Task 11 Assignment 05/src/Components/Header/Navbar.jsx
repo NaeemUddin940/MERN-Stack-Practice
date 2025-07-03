@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router";
 import Input from "../animate-ui/InputButton/Input";
 import ShoppingCart from "../../pages/ShoppingCart";
 import { useCartContext } from "../../Context/EcommerceContext";
-import FilterSIdebar from '../../FIlterBar/FilterSidebar'
+import FilterSidebar from '../../FIlterBar/FilterSidebar'
 import {
   Popover,
   PopoverContent,
@@ -55,10 +55,7 @@ const Navbar = () => {
                 <label
                   htmlFor="my-drawer"
                   aria-label="close sidebar"
-                  className="drawer-overlay"></label>
-                 
-
-               
+                  className="drawer-overlay">
                 <ul className="menu bg-base-200 text-base-content  dark:bg-black dark:text-gray-200 min-h-full w-70 p-4">
                    <details className="bg-zinc-900 border-2 py-1 px-3 rounded-2xl cursor-pointer hover:bg-black">
                     <summary className="text-2xl font-bold">Menu</summary>
@@ -79,8 +76,9 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   </details>
-                <FilterSIdebar/>
+                <FilterSidebar/>
                 </ul>
+                </label>
               </div>
             </div>
           </div>

@@ -15,7 +15,13 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
 
-  
+  const [selected, setSelected] = useState({
+    Price: null,
+    Category: null,
+    Color: null,
+    Size: null,
+  });
+
   // Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
@@ -126,6 +132,8 @@ const CartContextProvider = ({ children }) => {
     useDebounce,
     setProducts,
     allProducts,
+    selected,
+    setSelected,
   };
 
   return <CartContext.Provider value={state}>{children}</CartContext.Provider>;

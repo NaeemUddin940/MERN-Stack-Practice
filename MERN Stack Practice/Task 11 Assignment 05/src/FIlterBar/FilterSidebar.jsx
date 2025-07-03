@@ -1,13 +1,10 @@
-import { useState } from "react";
+
 import Checkbox from "./FilterCheckbox/Checkbox";
+import { useCartContext } from "../Context/EcommerceContext";
 
 export default function FilterSidebar() {
-  const [selected, setSelected] = useState({
-    Price: null,
-    Category: null,
-    Color: null,
-    Size: null,
-  });
+  const {selected, setSelected} = useCartContext()
+ 
   const handleSelect = (section, value) => {
     setSelected((prev) => ({
       ...prev,
