@@ -26,10 +26,10 @@ const Navbar = () => {
   }, [isDarkMode]);
   return (
     <div>
-      <div className="flex  bg-base-100 dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
+      <div className="flex bg-white  dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div className="drawer">
+            <div className="drawer sm:hidden">
               <input id="my-drawer" type="checkbox" className="drawer-toggle" />
               <div className="drawer-content">
                 {/* Page content here */}
@@ -56,8 +56,12 @@ const Navbar = () => {
                   htmlFor="my-drawer"
                   aria-label="close sidebar"
                   className="drawer-overlay"></label>
-                 <FilterSIdebar/>
-                <ul className="menu bg-base-200 text-base-content md:hidden dark:bg-zinc-950 dark:text-gray-200 min-h-full w-60 p-4">
+                 
+
+               
+                <ul className="menu bg-base-200 text-base-content  dark:bg-black dark:text-gray-200 min-h-full w-70 p-4">
+                   <details className="bg-zinc-900 border-2 py-1 px-3 rounded-2xl cursor-pointer hover:bg-black">
+                    <summary className="text-2xl font-bold">Menu</summary>
                   {/* Sidebar content here */}
                   <li className=" font-bold">
                     <NavLink to="/" className={"text-2xl"}>
@@ -74,6 +78,8 @@ const Navbar = () => {
                       Shop
                     </NavLink>
                   </li>
+                  </details>
+                <FilterSIdebar/>
                 </ul>
               </div>
             </div>

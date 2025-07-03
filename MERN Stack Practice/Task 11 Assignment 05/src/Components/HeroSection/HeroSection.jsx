@@ -6,7 +6,7 @@ import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 export default function HeroSection() {
   return (
-    <div className="dark:bg-black">
+    <div className="dark:bg-black bg-white">
       <div className="md:bg-[url(./assets/model.png)] py-7 bg-right bg-contain bg-no-repeat md:px-5 space-y-5 relative flex flex-col justify-center items-start">
         <h2 className=".integral-font font-black text-5xl md:leading-16 md:text-5xl lg:text-6xl xl:text-7xl">
           FIND CLOTHES
