@@ -14,6 +14,7 @@ const CartContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
+  const [filteredProduct, setFilterProduct] = useState([]);
 
   const [selected, setSelected] = useState({
     Price: null,
@@ -21,7 +22,42 @@ const CartContextProvider = ({ children }) => {
     Color: null,
     Size: null,
   });
+  const handleSelect = useCallback((section, value) => {
+    setSelected((prev) => ({
+      ...prev,
+      [section]: prev[section] === value ? null : value,
+    }));
+  }, []);
 
+  const applyFilter = () => {
+    let filtered = [...products];
+    if (selected.Category) {
+      filtered = filtered.filter(
+        (product) => product.catagory === selected.Category.toLowerCase()
+      );
+    }
+    if (selected.Color) {
+      filtered = filtered.filter((product) => product.color === selected.Color);
+    }
+    if (selected.Size) {
+      filtered = filtered.filter((product) => product.size === selected.Size);
+    }
+    if (selected.Price === "Lowest") {
+      filtered = filtered.sort((a, b) => b.price - a.price);
+    }
+    if (selected.Price === "Highest") {
+      filtered = filtered.sort((a, b) => a.price - b.price);
+    }
+
+    setFilterProduct(filtered);
+  };
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      applyFilter();
+    }, 150);
+    return () => clearTimeout(timer)
+  }, [selected, products]);
   // Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
@@ -134,6 +170,9 @@ const CartContextProvider = ({ children }) => {
     allProducts,
     selected,
     setSelected,
+    handleSelect,
+    applyFilter,
+    filteredProduct,
   };
 
   return <CartContext.Provider value={state}>{children}</CartContext.Provider>;

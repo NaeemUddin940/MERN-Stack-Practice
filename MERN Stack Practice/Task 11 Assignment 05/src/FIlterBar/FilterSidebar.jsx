@@ -1,29 +1,21 @@
-
 import Checkbox from "./FilterCheckbox/Checkbox";
 import { useCartContext } from "../Context/EcommerceContext";
+import React from "react";
 
-export default function FilterSidebar() {
-  const {selected, setSelected} = useCartContext()
- 
-  const handleSelect = (section, value) => {
-    setSelected((prev) => ({
-      ...prev,
-      [section]: value,
-    }));
-  };
-
+const FilterSidebar = () => {
+  const { selected, setSelected, handleSelect,applyFilter } =
+    useCartContext();
   const filter = {
     Price: ["Highest", "Lowest"],
-    Category: ["T-shirt", "Shirt", "Pants", "Shoes", "Watch"],
-    Color: ["Red", "Blue", "Black", "White", "Green"],
+    Category: ["T-shirt", "Shirt", "Pant", "Shoes", "Watch"],
+    Color: ["Green", "Orange", "Gray", "Violate"],
     Size: ["S", "M", "L", "XL", "XXL"],
   };
-
   return (
     <div className="pl-4 ">
       <div className="flex flex-col">
-        {Object.entries(filter).map(([section, items]) => (
-          <div className="w-40">
+        {Object.entries(filter).map(([section, items], index) => (
+          <div key={index} className="w-40">
             <h2 className="text-2xl font-bold">{section}</h2>
             <div className="pl-5 py-3">
               {items.map((item, index) => (
@@ -32,7 +24,10 @@ export default function FilterSidebar() {
                   subtitle={item}
                   target={item}
                   isChecked={selected[section] === item}
-                  onChange={() => handleSelect(section, item)}
+                  onChange={() => {
+                    handleSelect(section, item);
+                    applyFilter()
+                  }}
                 />
               ))}
             </div>
@@ -49,8 +44,11 @@ export default function FilterSidebar() {
             Size: null,
           })
         }
-        rounded="full"
-      >Clear FIlter</button>
+        rounded="full">
+        Clear FIlter
+      </button>
     </div>
   );
 }
+
+export default React.memo(FilterSidebar)

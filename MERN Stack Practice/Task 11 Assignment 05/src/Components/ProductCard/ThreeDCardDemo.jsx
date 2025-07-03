@@ -2,8 +2,9 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { NavLink } from "react-router";
 import { Star } from "lucide-react";
 import { useCartContext } from "../../Context/EcommerceContext";
+import React from "react";
 
-export function ThreeDCardDemo({ product }) {
+const ThreeDCardDemo = ({ product }) => {
   const { handleAddToCart, cart, handleRemoveCart } = useCartContext();
 
 
@@ -85,3 +86,4 @@ export function ThreeDCardDemo({ product }) {
     </CardContainer>
   );
 }
+export default React.memo(ThreeDCardDemo)
