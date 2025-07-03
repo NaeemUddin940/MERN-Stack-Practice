@@ -3,6 +3,7 @@ import Checkbox from "./FilterCheckbox/Checkbox";
 
 export default function FilterSidebar() {
   const [selected, setSelected] = useState({
+    Price: null,
     Category: null,
     Color: null,
     Size: null,
@@ -45,6 +46,7 @@ export default function FilterSidebar() {
         className="px-4 py-2 mt-3 cursor-pointer dark:bg-violet-500 dark:text-black rounded-2xl font-semibold"
         onClick={() =>
           setSelected({
+            Price: null,
             Category: null,
             Color: null,
             Size: null,
