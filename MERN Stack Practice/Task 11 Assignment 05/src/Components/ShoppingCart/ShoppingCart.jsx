@@ -1,6 +1,6 @@
-import { InteractiveHoverButton } from "../Components/ui/interactive-hover-button";
-import { useCartContext } from "../Context/EcommerceContext";
-import React, { useEffect, useMemo } from "react";
+import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+import { useCartContext } from "../../Context/EcommerceContext";
+import React, { useMemo } from "react";
 
 function ShoppingCart() {
   const { cart, handleRemoveCart, IncrementQuantity, DecrementQuantity } =
@@ -84,7 +84,6 @@ function ShoppingCart() {
         <span>Sub Total</span>
         <span>${subTotal.toFixed(2)}</span>
       </div>
-
       {/* <button className="w-full bg-black text-white py-3 rounded-lg mt-3 font-semibold hover:bg-gray-800 transition">
         Continue to Payment
       </button> */}

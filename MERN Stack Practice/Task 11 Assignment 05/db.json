@@ -10,7 +10,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 166.67,
       "isNew": true,
       "size": "XXL",
@@ -43,7 +43,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29"],
+      "colors": "Green",
       "originalPrice": 103.41,
       "isNew": true,
       "catagory": "shirt",
@@ -75,7 +75,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29"],
+      "colors": "Green",
       "originalPrice": 101.47,
       "isNew": true,
       "catagory": "pant",
@@ -107,7 +107,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29"],
+      "colors": "Green",
       "originalPrice": 138.98,
       "isNew": true,
       "catagory": "shoes",
@@ -139,7 +139,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 92.05,
       "isNew": true,
       "catagory": "watch",
@@ -171,7 +171,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 110.56,
       "isNew": true,
       "catagory": "t-shirt",
@@ -203,7 +203,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 176.03,
       "isNew": true,
       "catagory": "shirt",
@@ -235,7 +235,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 82.01,
       "isNew": true,
       "catagory": "pant",
@@ -267,7 +267,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#7F8CAA", "#483AA0"],
+      "colors": "Gray",
       "originalPrice": 199.61,
       "isNew": true,
       "catagory": "shoes",
@@ -299,7 +299,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 67.82,
       "isNew": true,
       "catagory": "watch",
@@ -331,7 +331,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#7F8CAA", "#483AA0"],
+      "colors": "Gray",
       "originalPrice": 169.8,
       "isNew": true,
       "catagory": "t-shirt",
@@ -363,7 +363,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 188.67,
       "isNew": true,
       "catagory": "shirt",
@@ -395,7 +395,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 99.63,
       "isNew": true,
       "catagory": "pant",
@@ -427,7 +427,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 65.86,
       "isNew": true,
       "catagory": "shoes",
@@ -459,7 +459,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 115.4,
       "isNew": true,
       "catagory": "watch",
@@ -491,7 +491,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 137.48,
       "isNew": true,
       "catagory": "t-shirt",
@@ -523,7 +523,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 145.14,
       "isNew": true,
       "catagory": "t-shirt",
@@ -555,7 +555,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 153.6,
       "isNew": true,
       "catagory": "t-shirt",
@@ -587,7 +587,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 89.81,
       "catagory": "t-shirt",
       "price": 59.27,
@@ -618,7 +618,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 114.71,
       "catagory": "t-shirt",
       "price": 72.27,
@@ -649,7 +649,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 64.77,
       "catagory": "t-shirt",
       "isNew": false,
@@ -682,7 +682,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 178.27,
       "catagory": "t-shirt",
       "price": 99.83,
@@ -714,7 +714,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 174.68,
       "catagory": "shirt",
       "price": 127.52,
@@ -746,7 +746,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 82.1,
       "catagory": "shirt",
       "price": 54.19,
@@ -778,7 +778,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 110.45,
       "catagory": "shirt",
       "price": 77.32,
@@ -810,7 +810,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 197.29,
       "catagory": "shirt",
       "price": 116.4,
@@ -842,7 +842,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 160.02,
       "catagory": "shirt",
       "price": 142.42,
@@ -874,7 +874,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 136.79,
       "catagory": "shirt",
       "price": 80.71,
@@ -906,7 +906,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 101.05,
       "catagory": "shirt",
       "price": 78.82,
@@ -938,7 +938,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 148.66,
       "catagory": "shirt",
       "price": 111.5,
@@ -970,7 +970,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 182.2,
       "catagory": "pant",
       "price": 116.61,
@@ -1002,7 +1002,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 196.85,
       "size": "XL",
       "catagory": "pant",
@@ -1034,7 +1034,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 146.27,
       "size": "XL",
       "catagory": "pant",
@@ -1066,7 +1066,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Orange",
       "originalPrice": 67.81,
       "size": "XL",
       "catagory": "pant",
@@ -1098,7 +1098,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 113.5,
       "size": "XL",
       "catagory": "pant",
@@ -1130,7 +1130,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 139.54,
       "size": "XL",
       "catagory": "pant",
@@ -1162,7 +1162,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 90.43,
       "size": "XL",
       "catagory": "pant",
@@ -1194,7 +1194,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 79.07,
       "size": "XL",
       "catagory": "shoes",
@@ -1226,7 +1226,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 101.56,
       "size": "XL",
       "catagory": "shoes",
@@ -1258,7 +1258,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#483AA0"],
+      "colors": "Violate",
       "originalPrice": 147.88,
       "size": "XL",
       "catagory": "shoes",
@@ -1290,7 +1290,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 118.4,
       "size": "XL",
       "catagory": "shoes",
@@ -1322,14 +1322,14 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 199.65,
       "catagory": "shoes",
       "price": 175.69,
       "save": 23.96,
       "size": "XXL",
       "isNew": false,
-      "size": "XXL",
+
       "discountPercent": 12,
       "rating": 2.0,
       "reviews": [
@@ -1355,7 +1355,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 107.61,
       "catagory": "shoes",
       "price": 73.17,
@@ -1387,7 +1387,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 147.01,
       "catagory": "shoes",
       "price": 97.03,
@@ -1419,7 +1419,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#FF7D29", "#7F8CAA"],
+      "colors": "Gray",
       "originalPrice": 71.86,
       "catagory": "watch",
       "price": 40.96,
@@ -1451,12 +1451,12 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 154.76,
       "catagory": "watch",
       "price": 91.31,
       "save": 63.45,
-      "isNew": false,
+      "isNew": false, 
       "size": "XXL",
       "discountPercent": 41,
       "rating": 1.1,
@@ -1483,7 +1483,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 165.89,
       "catagory": "watch",
       "price": 102.85,
@@ -1515,7 +1515,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 154.03,
       "catagory": "watch",
       "price": 83.18,
@@ -1547,7 +1547,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 61.89,
       "catagory": "watch",
       "price": 50.75,
@@ -1579,7 +1579,7 @@
         "https://picsum.photos/100/100?random=883",
         "https://picsum.photos/100/100?random=293"
       ],
-      "colors": ["#03A6A1", "#FF7D29", "#7F8CAA", "#483AA0"],
+      "colors": "Green",
       "originalPrice": 72.67,
       "isNew": false,
       "size": "XXL",

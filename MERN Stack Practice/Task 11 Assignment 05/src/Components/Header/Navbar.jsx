@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router";
 import Input from "../animate-ui/InputButton/Input";
-import ShoppingCart from "../../pages/ShoppingCart";
+import ShoppingCart from "../../Components/ShoppingCart/ShoppingCart";
 import { useCartContext } from "../../Context/EcommerceContext";
 import FilterSidebar from "../../FIlterBar/FilterSidebar";
 import {
@@ -128,7 +128,7 @@ const Navbar = () => {
                 <div
                   id="cart"
                   className="bg-red-400 absolute -top-1 -right-1 h-4 w-4 flex justify-center items-center rounded-full">
-                  <p className="text-[12px] font-bold">{cartLength}</p>
+                  <p className="text-[13px] text-black font-black">{cartLength}</p>
                 </div>
               </div>
             </PopoverTrigger>

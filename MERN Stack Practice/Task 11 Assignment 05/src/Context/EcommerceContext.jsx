@@ -15,13 +15,13 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProduct, setFilterProduct] = useState([]);
-
   const [selected, setSelected] = useState({
     Price: null,
     Category: null,
     Color: null,
     Size: null,
   });
+
   const handleSelect = useCallback((section, value) => {
     setSelected((prev) => ({
       ...prev,
@@ -56,7 +56,7 @@ const CartContextProvider = ({ children }) => {
     let timer = setTimeout(() => {
       applyFilter();
     }, 150);
-    return () => clearTimeout(timer)
+    return () => clearTimeout(timer);
   }, [selected, products]);
   // Fetch Products
   useEffect(() => {
@@ -80,6 +80,30 @@ const CartContextProvider = ({ children }) => {
 
     fetchProducts();
   }, []);
+
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    try {
+      if (storedCart) {
+        setCart(JSON.parse(storedCart));
+      }
+    } catch (error) {
+      console.log(error);
+      localStorage.removeItem("cart");
+    }
+  }, []);
+
+  
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+      localStorage.removeItem("cart");
+    }
+  }, [cart]);
+
+  
 
   // Add To Cart
   const handleAddToCart = useCallback(

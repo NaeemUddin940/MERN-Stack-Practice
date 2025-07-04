@@ -27,7 +27,6 @@ export default function ProductPage() {
         if (id !== id.length) {
           console.error("Failed to fetch products:", err);
           return setError("Failed to load Products.");
-      
         }
       } finally {
         setLoading(false);
@@ -44,8 +43,21 @@ export default function ProductPage() {
         <Loader />
       </div>
     );
- if(error) return <div><ErrorPage title="Failed To Load Products" des='the page you are looking for not avaible!'/></div>
-  if (!product) return <div><ErrorPage/></div>;
+  if (error)
+    return (
+      <div>
+        <ErrorPage
+          title="Failed To Load Products"
+          des="the page you are looking for not avaible!"
+        />
+      </div>
+    );
+  if (!product)
+    return (
+      <div>
+        <ErrorPage />
+      </div>
+    );
 
   return (
     <>
@@ -122,22 +134,20 @@ export default function ProductPage() {
           </div>
 
           <div className="mb-4 flex items-center gap-10">
-            <div>
+            {/* <div>
               <h4 className="font-medium text-2xl mb-1">Colors:</h4>
               <div className="flex gap-2">
-                {product.colors.map((color) => (
-                  <button
-                    key={color}
-                    className={`w-6 h-6 rounded-full border-3 ${
-                      selectedColor === color
-                        ? "border-zinc-900"
-                        : "border-gray-300"
-                    }`}
-                    style={{ backgroundColor: color }}
-                    onClick={() => setSelectedColor(color)}></button>
-                ))}
+                <button
+                
+                  className={`w-6 h-6 rounded-full border-3 ${
+                    selectedColor === product.colors
+                      ? "border-zinc-900"
+                      : "border-gray-300"
+                  }`}
+                  style={{ backgroundColor: product.colors }}
+                  onClick={() => setSelectedColor(color)}></button>
               </div>
-            </div>
+            </div> */}
             <InteractiveHoverButton text="Add To Cart" />
           </div>
 
@@ -165,7 +175,6 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-      
     </>
   );
 }
