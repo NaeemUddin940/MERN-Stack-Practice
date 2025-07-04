@@ -7,7 +7,6 @@ import React from "react";
 const ThreeDCardDemo = ({ product }) => {
   const { handleAddToCart, cart, handleRemoveCart } = useCartContext();
 
-
   return (
     <CardContainer className="cursor-pointer">
       <CardBody className="bg-gray-50 relative group/card py-4 dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  rounded-xl p-5 border h-105 w-full">
@@ -55,7 +54,7 @@ const ThreeDCardDemo = ({ product }) => {
           </CardItem>
         </NavLink>
         <div className="flex justify-between items-center mt-3">
-          {cart.find(item => item.id === product.id) ? (
+          {cart.find((item) => item.id === product.id) ? (
             <CardItem
               translateZ={20}
               as="button"
@@ -85,5 +84,5 @@ const ThreeDCardDemo = ({ product }) => {
       </CardBody>
     </CardContainer>
   );
-}
-export default React.memo(ThreeDCardDemo)
+};
+export default React.memo(ThreeDCardDemo);

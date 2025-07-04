@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router";
 import Input from "../animate-ui/InputButton/Input";
 import ShoppingCart from "../../pages/ShoppingCart";
 import { useCartContext } from "../../Context/EcommerceContext";
-import FilterSidebar from '../../FIlterBar/FilterSidebar'
+import FilterSidebar from "../../FIlterBar/FilterSidebar";
 import {
   Popover,
   PopoverContent,
@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="flex bg-white  dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div className="drawer sm:hidden">
+            <div className="drawer md:hidden">
               <input id="my-drawer" type="checkbox" className="drawer-toggle" />
               <div className="drawer-content">
                 {/* Page content here */}
@@ -56,28 +56,28 @@ const Navbar = () => {
                   htmlFor="my-drawer"
                   aria-label="close sidebar"
                   className="drawer-overlay">
-                <ul className="menu bg-base-200 text-base-content  dark:bg-black dark:text-gray-200 min-h-full w-70 p-4">
-                   <details className="bg-zinc-900 border-2 py-1 px-3 rounded-2xl cursor-pointer hover:bg-black">
-                    <summary className="text-2xl font-bold">Menu</summary>
-                  {/* Sidebar content here */}
-                  <li className=" font-bold">
-                    <NavLink to="/" className={"text-2xl"}>
-                      Home
-                    </NavLink>
-                  </li>
-                  <li className=" font-bold">
-                    <NavLink className={"text-2xl"} to="/about">
-                      About
-                    </NavLink>
-                  </li>
-                  <li className=" font-bold">
-                    <NavLink className={"text-2xl"} to="/shop">
-                      Shop
-                    </NavLink>
-                  </li>
-                  </details>
-                <FilterSidebar/>
-                </ul>
+                  <ul className="menu bg-base-200 text-base-content dark:bg-black dark:text-gray-200 min-h-full w-70 p-4">
+                    <details className="bg-zinc-900 border-2 py-1 px-3 rounded-2xl cursor-pointer hover:bg-black">
+                      <summary className="text-2xl font-bold">Menu</summary>
+                      {/* Sidebar content here */}
+                      <li className=" font-bold">
+                        <NavLink to="/" className={"text-2xl"}>
+                          Home
+                        </NavLink>
+                      </li>
+                      <li className=" font-bold">
+                        <NavLink className={"text-2xl"} to="/about">
+                          About
+                        </NavLink>
+                      </li>
+                      <li className=" font-bold">
+                        <NavLink className={"text-2xl"} to="/shop">
+                          Shop
+                        </NavLink>
+                      </li>
+                    </details>
+                    <FilterSidebar />
+                  </ul>
                 </label>
               </div>
             </div>

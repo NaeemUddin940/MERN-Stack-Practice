@@ -1,12 +1,12 @@
 import { Link } from "react-router";
 import HeroSection from "../Components/HeroSection/HeroSection";
 import { Marquee } from "../Components/magicui/marquee";
-import {TabDemo} from "../Components/ui/tabs-like-bookmark"
+import { TabDemo } from "../Components/ui/tabs-like-bookmark";
 
 export default function Home() {
   return (
     <>
-      <div className="px-5 ">
+      <div className="px-5">
         <HeroSection />
       </div>
       <Marquee reverse={true} className="bg-zinc-800 text-indigo-200 px-5">

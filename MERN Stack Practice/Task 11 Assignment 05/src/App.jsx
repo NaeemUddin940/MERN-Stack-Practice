@@ -1,12 +1,18 @@
 import AppRouter from "./AppRouter";
 import Header from "./Components/Header/Header";
-import {Footerdemo} from '../src/Components/ui/footer-section'
+import { Footerdemo } from "../src/Components/ui/footer-section";
+import { ScrollProvider } from "./hooks/use-scroll-direction";
+
 const App = () => {
   return (
     <div>
-      <Header/>
-      <AppRouter />
-      <Footerdemo/>
+      <Header />
+      <div className="pt-25">
+        <ScrollProvider>
+          <AppRouter />
+        </ScrollProvider>
+        <Footerdemo />
+      </div>
     </div>
   );
 };

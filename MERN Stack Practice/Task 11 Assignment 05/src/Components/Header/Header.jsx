@@ -1,11 +1,18 @@
 import Navbar from "./Navbar";
 import NotificationBar from "./NotificationBar";
+import { cn } from "../../lib/utils";
+import {useScrollContext} from '../../hooks/use-scroll-direction'
 
 const Header = () => {
+  const scrollDirection = useScrollContext()
   return (
-    <div>
+    <div
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm transition-transform duration-300 ease-in-out ",
+        scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
+      )}>
       <NotificationBar />
-      <Navbar/>
+      <Navbar />
     </div>
   );
 };

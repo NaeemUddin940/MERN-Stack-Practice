@@ -9,8 +9,8 @@ const Shop = () => {
 const toShow = filteredProduct.length > 0 ? filteredProduct : products;
 
   return (
-    <div className="grid">
-      <div className="flex">
+    <div className="grid min-h-screen">
+      <div className="flex flex-grow">
         <aside className="hidden md:block">
           <FilterSIdebar
             selected={selected}
@@ -18,7 +18,7 @@ const toShow = filteredProduct.length > 0 ? filteredProduct : products;
             handleSelect={handleSelect}
           />
         </aside>
-        <div className="overflow-auto h-200 w-full scrollbar-hide">
+        <div className="overflow-auto w-full scrollbar-hide">
           {!products.length ? (
             <p>No products available.</p>
           ) : (

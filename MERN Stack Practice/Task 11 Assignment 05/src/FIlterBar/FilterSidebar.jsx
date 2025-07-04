@@ -12,7 +12,7 @@ const FilterSidebar = () => {
     Size: ["S", "M", "L", "XL", "XXL"],
   };
   return (
-    <div className="pl-4 ">
+    <div className="pl-4 sticky top-0 ">
       <div className="flex flex-col">
         {Object.entries(filter).map(([section, items], index) => (
           <div key={index} className="w-40">
@@ -45,7 +45,7 @@ const FilterSidebar = () => {
           })
         }
         rounded="full">
-        Clear FIlter
+        Clear Filter
       </button>
     </div>
   );

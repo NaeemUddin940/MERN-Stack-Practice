@@ -10,7 +10,7 @@ export default function ProductSection({ title, filterFn }) {
 
   const filtered = Array.isArray(data) ? data.filter(filterFn) : [];
 
-  const { visibleItem, loadMore, hasMore } = useLoadMore(filtered, 4, 4);
+  const { visibleItem, loadMore, hasMore } = useLoadMore(filtered, 8, 4);
 
   return (
     <div className="flex flex-col space-y-5 px-5 justify-center items-center">
