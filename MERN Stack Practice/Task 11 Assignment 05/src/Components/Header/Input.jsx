@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { useCartContext } from "../../../Context/EcommerceContext";
+import { useEcommerceContext } from "../../Context/EcommerceContext";
 import { useEffect, useState } from "react";
 
 const Input = () => {
-  const { useDebounce, allProducts, setProducts } = useCartContext();
+  const { useDebounce, allProducts, setProducts } = useEcommerceContext();
 
   // Here Use Debounce
   const [searchValue, setSearchValue] = useState("");

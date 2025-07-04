@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router";
-import Input from "../animate-ui/InputButton/Input";
+import Input from "./Input";
 import ShoppingCart from "../../Components/ShoppingCart/ShoppingCart";
-import { useCartContext } from "../../Context/EcommerceContext";
+import { useEcommerceContext } from "../../Context/EcommerceContext";
 import FilterSidebar from "../FIlterBar/FilterSidebar";
 import {
   Popover,
@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   console.log("Rendering Nav Bar");
-  const { cart } = useCartContext();
+  const { cart } = useEcommerceContext();
   const cartLength = cart.length;
 
   const [isDarkMode, setIsDarkMode] = useState(true);

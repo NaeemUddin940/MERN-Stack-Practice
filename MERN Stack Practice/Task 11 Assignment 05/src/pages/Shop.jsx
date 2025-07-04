@@ -1,11 +1,11 @@
 import React from "react";
 import ThreeDCardDemo from "../Components/ProductCard/ThreeDCardDemo";
-import { useCartContext } from "../Context/EcommerceContext";
+import { useEcommerceContext } from "../Context/EcommerceContext";
 import FilterSIdebar from "../Components/FIlterBar/FilterSidebar";
 
 const Shop = () => {
   const { selected, setSelected, handleSelect, products, filteredProduct } =
-    useCartContext();
+    useEcommerceContext();
   const toShow = filteredProduct.length > 0 ? filteredProduct : products;
 
   return (

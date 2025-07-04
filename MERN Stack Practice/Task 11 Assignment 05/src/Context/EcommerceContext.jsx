@@ -7,9 +7,9 @@ import {
 } from "react";
 import Loader from "../Components/Loading/Loader";
 
-const CartContext = createContext();
+const EcommerceContext = createContext();
 
-const CartContextProvider = ({ children }) => {
+const EcommerceContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
@@ -36,7 +36,6 @@ const CartContextProvider = ({ children }) => {
         (product) => product.catagory === selected.Category.toLowerCase()
       );
     } else {
-      
     }
     if (selected.Color) {
       filtered = filtered.filter((product) => product.color === selected.Color);
@@ -50,7 +49,7 @@ const CartContextProvider = ({ children }) => {
     if (selected.Price === "Highest") {
       filtered = filtered.sort((a, b) => a.price - b.price);
     }
-  
+
     setFilterProduct(filtered);
   };
 
@@ -83,7 +82,6 @@ const CartContextProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
-
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     try {
@@ -103,8 +101,6 @@ const CartContextProvider = ({ children }) => {
       localStorage.removeItem("cart");
     }
   }, [cart]);
-
-  
 
   // Add To Cart
   const handleAddToCart = useCallback(
@@ -200,9 +196,13 @@ const CartContextProvider = ({ children }) => {
     filteredProduct,
   };
 
-  return <CartContext.Provider value={state}>{children}</CartContext.Provider>;
+  return (
+    <EcommerceContext.Provider value={state}>
+      {children}
+    </EcommerceContext.Provider>
+  );
 };
 
-export const useCartContext = () => useContext(CartContext);
+export const useEcommerceContext = () => useContext(EcommerceContext);
 
-export default CartContextProvider;
+export default EcommerceContextProvider;

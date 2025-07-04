@@ -1,10 +1,10 @@
-import { useCartContext } from "../../Context/EcommerceContext";
+import {  useEcommerceContext } from "../../Context/EcommerceContext";
 import  ThreeDCardDemo  from "../ProductCard/ThreeDCardDemo";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import useLoadMore from "../../hooks/useLoadMore";
 
 export default function ProductSection({ title, filterFn }) {
-  const { products } = useCartContext();
+  const { products } = useEcommerceContext();
 
   const data = Array.isArray(products) ? products : [];
 

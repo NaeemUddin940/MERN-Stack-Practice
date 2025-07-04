@@ -1,11 +1,11 @@
-import { useCartContext } from "../../Context/EcommerceContext";
+import { useEcommerceContext } from "../../Context/EcommerceContext";
 import Checkbox from "./Checkbox";
 
 import React from "react";
 
 const FilterSidebar = () => {
   const { selected, setSelected, handleSelect,applyFilter } =
-    useCartContext();
+    useEcommerceContext();
   const filter = {
     Price: ["Highest", "Lowest"],
     Category: ["T-shirt", "Shirt", "Pant", "Shoes", "Watch"],
