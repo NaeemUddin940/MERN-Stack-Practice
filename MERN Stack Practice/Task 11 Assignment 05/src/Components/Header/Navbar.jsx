@@ -12,6 +12,7 @@ import { Switch } from "../ui/switch";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  console.log("Rendering Nav Bar");
   const { cart } = useCartContext();
   const cartLength = cart.length;
 
@@ -29,13 +30,13 @@ const Navbar = () => {
       <div className="flex bg-white  dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div className="drawer md:hidden">
+            <div className="drawer">
               <input id="my-drawer" type="checkbox" className="drawer-toggle" />
               <div className="drawer-content">
                 {/* Page content here */}
                 <label
                   htmlFor="my-drawer"
-                  className="dark:bg-violet-500 btn p-2 rounded-xl mr-4 drawer-button">
+                  className="dark:bg-violet-500 block md:hidden btn p-2 rounded-xl mr-4 drawer-button">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -87,7 +88,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden md:flex lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li className="text-xl font-bold">
               <NavLink to="/">Home</NavLink>

@@ -35,6 +35,8 @@ const CartContextProvider = ({ children }) => {
       filtered = filtered.filter(
         (product) => product.catagory === selected.Category.toLowerCase()
       );
+    } else {
+      
     }
     if (selected.Color) {
       filtered = filtered.filter((product) => product.color === selected.Color);
@@ -48,7 +50,7 @@ const CartContextProvider = ({ children }) => {
     if (selected.Price === "Highest") {
       filtered = filtered.sort((a, b) => a.price - b.price);
     }
-
+  
     setFilterProduct(filtered);
   };
 
@@ -94,7 +96,6 @@ const CartContextProvider = ({ children }) => {
     }
   }, []);
 
-  
   useEffect(() => {
     if (cart.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));

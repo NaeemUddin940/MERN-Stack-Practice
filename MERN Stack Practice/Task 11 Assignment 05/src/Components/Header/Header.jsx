@@ -4,6 +4,7 @@ import { cn } from "../../lib/utils";
 import {useScrollContext} from '../../hooks/use-scroll-direction'
 
 const Header = () => {
+  console.log("Rendering Header.....");
   const scrollDirection = useScrollContext()
   return (
     <div

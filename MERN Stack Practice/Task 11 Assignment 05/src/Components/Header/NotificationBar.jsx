@@ -2,6 +2,7 @@ import GradientText from "../GradientText/GradientText";
 import ShinyText from "../ShinyText/ShinyText";
 
 export default function NotificationBar() {
+  console.log("Rendering Notification Bar.....");
   return (
     <div className="bg-zinc-800 flex justify-center items-center">
       <div className="flex w-auto py-1 gap-2">
