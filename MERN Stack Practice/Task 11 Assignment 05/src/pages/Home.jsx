@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import HeroSection from "../Components/HeroSection/HeroSection";
 import { Marquee } from "../Components/magicui/marquee";
-import { TabDemo } from "../Components/ui/tabs-like-bookmark";
+import { TabDemo } from "../Components/Tabs/tabs-like-bookmark";
 
 export default function Home() {
   return (

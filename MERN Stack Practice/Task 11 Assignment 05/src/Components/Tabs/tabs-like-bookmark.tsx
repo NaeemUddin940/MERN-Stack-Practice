@@ -1,5 +1,6 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import ProductSection from "../Reusable/ProductSection";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../Tabs/tabs";
+import ProductSection from "../ProductCard/ProductSection";
+import { React } from "react";
 function TabDemo() {
   return (
     <Tabs defaultValue="tab-1">
@@ -49,27 +50,27 @@ function TabDemo() {
       </TabsContent>
       <TabsContent value="tab-3">
         <ProductSection
-        title="Shirt"
-        filterFn={(product) => product.catagory === "shirt"}
-      />
+          title="Shirt"
+          filterFn={(product) => product.catagory === "shirt"}
+        />
       </TabsContent>
       <TabsContent value="tab-4">
         <ProductSection
-        title="Pants"
-        filterFn={(product) => product.catagory === "pant"}
-      />
+          title="Pants"
+          filterFn={(product) => product.catagory === "pant"}
+        />
       </TabsContent>
       <TabsContent value="tab-5">
         <ProductSection
-        title="Shoes"
-        filterFn={(product) => product.catagory === "shoes"}
-      />
+          title="Shoes"
+          filterFn={(product) => product.catagory === "shoes"}
+        />
       </TabsContent>
       <TabsContent value="tab-6">
         <ProductSection
-        title="Watch"
-        filterFn={(product) => product.catagory === "watch"}
-      />
+          title="Watch"
+          filterFn={(product) => product.catagory === "watch"}
+        />
       </TabsContent>
     </Tabs>
   );

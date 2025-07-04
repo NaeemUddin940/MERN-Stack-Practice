@@ -1,15 +1,15 @@
 import * as React from "react";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import { Switch } from "../ui/switch";
-import { Textarea } from "../ui/textarea";
+import { Button } from "./button";
+import { Input } from "./input";
+import { Label } from "./label";
+import { Switch } from "./switch";
+import { Textarea } from "./textarea";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../ui/tooltip";
+} from "./tooltip";
 import {
   Facebook,
   Instagram,

@@ -1,12 +1,12 @@
 import React from "react";
-import  ThreeDCardDemo  from "../Components/ProductCard/ThreeDCardDemo";
+import ThreeDCardDemo from "../Components/ProductCard/ThreeDCardDemo";
 import { useCartContext } from "../Context/EcommerceContext";
-import FilterSIdebar from "../FIlterBar/FilterSidebar";
+import FilterSIdebar from "../Components/FIlterBar/FilterSidebar";
 
 const Shop = () => {
   const { selected, setSelected, handleSelect, products, filteredProduct } =
     useCartContext();
-const toShow = filteredProduct.length > 0 ? filteredProduct : products;
+  const toShow = filteredProduct.length > 0 ? filteredProduct : products;
 
   return (
     <div className="grid min-h-screen">
@@ -24,13 +24,13 @@ const toShow = filteredProduct.length > 0 ? filteredProduct : products;
           ) : (
             <div className="grid gap-6 px-5 w-full mx-auto grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
               {toShow.map((product) => {
-                  return <ThreeDCardDemo key={product.id} product={product} />;
-                })}
+                return <ThreeDCardDemo key={product.id} product={product} />;
+              })}
             </div>
           )}
         </div>
       </div>
     </div>
   );
-}
-export default React.memo(Shop)
+};
+export default React.memo(Shop);

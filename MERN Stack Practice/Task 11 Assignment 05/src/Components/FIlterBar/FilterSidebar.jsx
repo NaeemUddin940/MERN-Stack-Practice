@@ -1,5 +1,6 @@
-import Checkbox from "./FilterCheckbox/Checkbox";
-import { useCartContext } from "../Context/EcommerceContext";
+import { useCartContext } from "../../Context/EcommerceContext";
+import Checkbox from "./Checkbox";
+
 import React from "react";
 
 const FilterSidebar = () => {

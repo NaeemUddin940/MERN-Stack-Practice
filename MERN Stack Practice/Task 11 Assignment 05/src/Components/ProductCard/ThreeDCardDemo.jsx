@@ -1,4 +1,4 @@
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { CardBody, CardContainer, CardItem } from "../../Components/ProductCard/3d-card";
 import { NavLink } from "react-router";
 import { Star } from "lucide-react";
 import { useCartContext } from "../../Context/EcommerceContext";
