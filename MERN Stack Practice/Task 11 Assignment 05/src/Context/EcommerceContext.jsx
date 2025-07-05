@@ -8,20 +8,27 @@ import {
 } from "react";
 import Loader from "../Components/Loading/Loader";
 import { FetchProducts } from "../Reducers/FetchProducts";
+import { fetchProducts } from "../utils/FetchProducts";
 
 const EcommerceContext = createContext();
 
 const initialState = {
   products: [],
   loading: true,
-  error: '',
+  error: "",
 };
 
 const EcommerceContextProvider = ({ children }) => {
-  const [allProducts, productsDispatch] = useReducer(FetchProducts, initialState);
+  const [allProducts, productsDispatch] = useReducer(
+    FetchProducts,
+    initialState
+  );
   const [cart, setCart] = useState([]);
   // const [allProducts, setAllProducts] = useState([]);
-  const [filteredProduct, setFilterProduct] = useState([]);
+  const [filteredProducts, filteredProductsDispatch] = useReducer(
+    FetchProducts,
+    initialState
+  );
   const [selected, setSelected] = useState({
     Price: null,
     Category: null,
@@ -31,23 +38,7 @@ const EcommerceContextProvider = ({ children }) => {
 
   // Fetch Products
   useEffect(() => {
-    const fetchProducts = async () => {
-      productsDispatch({ type: "FETCH_START" });
-
-      try {
-        const response = await fetch("http://localhost:3000/products");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        productsDispatch({ type: "FETCH_SUCCESS", products: data });
-        setAllProducts(data);
-      } catch (err) {
-        productsDispatch({ type: "FETCH_ERROR", error: "Failed To Fetch Data" });
-      }
-    };
-
-    fetchProducts();
+    fetchProducts(productsDispatch, filteredProductsDispatch);
   }, []);
 
   const handleSelect = useCallback((section, value) => {
@@ -185,6 +176,8 @@ const EcommerceContextProvider = ({ children }) => {
 
   const state = {
     allProducts,
+    filteredProducts,
+
 
     cart,
     setCart,
@@ -193,13 +186,10 @@ const EcommerceContextProvider = ({ children }) => {
     IncrementQuantity,
     DecrementQuantity,
     useDebounce,
-    // setProducts,
-    // allProducts,
     selected,
     setSelected,
     handleSelect,
     applyFilter,
-    filteredProduct,
   };
 
   return (

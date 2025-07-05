@@ -4,10 +4,12 @@ import { useEcommerceContext } from "../Context/EcommerceContext";
 import FilterSIdebar from "../Components/FIlterBar/FilterSidebar";
 
 const Shop = () => {
-  const { selected, setSelected, handleSelect, products, filteredProduct } =
+  const { selected, setSelected, handleSelect, allProducts, filteredProducts } =
     useEcommerceContext();
-  const toShow = filteredProduct.length > 0 ? filteredProduct : products;
-
+  const toShow =
+    filteredProducts.products.length > 0
+      ? filteredProducts.products
+      : allProducts.products;
   return (
     <div className="grid min-h-screen">
       <div className="flex flex-grow">
@@ -19,8 +21,12 @@ const Shop = () => {
           />
         </aside>
         <div className="overflow-auto w-full scrollbar-hide">
-          {!products.length ? (
-            <p>No products available.</p>
+          {!allProducts.products.length ? (
+            <div className="text-gray-500 w-full center">
+              <p className="flex h-50 justify-center items-center text-5xl font-bold">
+                No Products Found....!!
+              </p>
+            </div>
           ) : (
             <div className="grid gap-6 px-5 w-full mx-auto grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
               {toShow.map((product) => {
