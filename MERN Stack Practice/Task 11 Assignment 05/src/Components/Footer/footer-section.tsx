@@ -20,17 +20,11 @@ import {
   Twitter,
 } from "lucide-react";
 import { Link } from "react-router";
+import {useEcommerceContext} from "../../Context/EcommerceContext"
 
 function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true);
 
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+   const { setIsDarkMode, isDarkMode } = useEcommerceContext();
 
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
@@ -46,6 +40,8 @@ function Footerdemo() {
             <form className="relative">
               <Input
                 type="email"
+                height="10"
+                width="full"
                 placeholder="Enter your email"
                 className="pr-12 backdrop-blur-sm"
               />
@@ -175,9 +171,9 @@ function Footerdemo() {
             <div className="flex items-center space-x-2">
               <Sun className="h-4 w-4" />
               <Switch
-                id="dark-mode"
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
+                
+                checked={!isDarkMode? true: false}
+                onCheckedChange={() => setIsDarkMode(prev => !prev)}
               />
               <Moon className="h-4 w-4" />
               <Label htmlFor="dark-mode" className="sr-only">

@@ -1,34 +1,41 @@
 import styled from "styled-components";
 import { useEcommerceContext } from "../../Context/EcommerceContext";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Input = () => {
-  // const { useDebounce, allProducts, setProducts } = useEcommerceContext();
+  const { useDebounce, allProducts, productsDispatch } = useEcommerceContext();
 
   // Here Use Debounce
   const [searchValue, setSearchValue] = useState("");
 
-  // const debouncedSearch = useDebounce(searchValue, 300);
-  // useEffect(() => {
-  //   if (debouncedSearch === "") {
-  //     setProducts(allProducts);
-  //   } else {
-  //     const filteredSearchProduct = allProducts.filter((p) =>
-  //       p.title.toLowerCase().includes(debouncedSearch.toLowerCase())
-  //     );
-  //     return setProducts(filteredSearchProduct);
-  //   }
-  // }, [debouncedSearch, allProducts]);
+  const debouncedSearch = useDebounce(searchValue, 300);
+
+  useEffect(() => {
+    if (debouncedSearch === "") {
+      productsDispatch({
+        type: "SEARCH_PRODUCTS",
+        products: allProducts.products, // আসল full product list
+      });
+    } else {
+      const filtered = allProducts.products.filter((p) =>
+        p.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+      );
+      productsDispatch({
+        type: "SEARCH_PRODUCTS",
+        products: filtered,
+      });
+    }
+  }, [debouncedSearch]);
 
   return (
     <StyledWrapper>
       <input
-        type="text"
-        name="text"
+        placeholder="Type something here...."
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        className="input dark:bg-gray-800 placeholder:text-black dark:border-2 dark:border-gray-200 dark:placeholder:text-white bg-gray-100 text-black dark:text-white"
-        placeholder="Search Here....."
+        className="input placeholder:text-black dark:placeholder:text-white text-black dark:text-white"
+        name="text"
+        type="text"
       />
     </StyledWrapper>
   );
@@ -36,26 +43,17 @@ const Input = () => {
 
 const StyledWrapper = styled.div`
   .input {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  font-family: 'IntegralCF', sans-serif;
+    border: 2px solid #8707ff;
     border-radius: 30px;
-    margin: 3px 0;
-    outline: none;
-    width: 200px;
-    transition: 0.4s;
+    padding: 10px 20px;
+    background: transparent;
+    max-width: 190px;
   }
 
-  .input:hover {
-    box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
-  }
-
-  .input:focus {
-    box-shadow: 0 0 0 0.15vw skyblue;
+  .input:active {
+    box-shadow: 2px 2px 15px #8707ff inset;
   }
 `;
 
-export default Input;
+export default React.memo(Input);

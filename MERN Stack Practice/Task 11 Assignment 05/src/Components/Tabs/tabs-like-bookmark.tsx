@@ -7,32 +7,32 @@ function TabDemo() {
       <TabsList className="relative h-auto w-full gap-5  p-0 before:absolute before:inset-x-0 before:bottom-0 before:h-px before:bg-border">
         <TabsTrigger
           value="tab-1"
-          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 data-[state=active]:z-10 data-[state=active]:shadow-none">
-          New Arrival
+          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 py-1 px-1 data-[state=active]:z-10 data-[state=active]:shadow-none">
+          New
         </TabsTrigger>
         <TabsTrigger
           value="tab-2"
-          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 data-[state=active]:z-10 data-[state=active]:shadow-none">
+          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 py-1 px-1 data-[state=active]:z-10 data-[state=active]:shadow-none">
           T-shirt
         </TabsTrigger>
         <TabsTrigger
           value="tab-3"
-          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 data-[state=active]:z-10 data-[state=active]:shadow-none">
+          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 py-1 px-1 data-[state=active]:z-10 data-[state=active]:shadow-none">
           Shirt
         </TabsTrigger>
         <TabsTrigger
           value="tab-4"
-          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 data-[state=active]:z-10 data-[state=active]:shadow-none">
+          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 py-1 px-1 data-[state=active]:z-10 data-[state=active]:shadow-none">
           Pants
         </TabsTrigger>
         <TabsTrigger
           value="tab-5"
-          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 data-[state=active]:z-10 data-[state=active]:shadow-none">
+          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 py-1 px-1 data-[state=active]:z-10 data-[state=active]:shadow-none">
           Shoes
         </TabsTrigger>
         <TabsTrigger
           value="tab-6"
-          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 data-[state=active]:z-10 data-[state=active]:shadow-none">
+          className="overflow-hidden text-xl rounded-b-none border-x border-t border-border bg-muted md:py-4 py-1 px-1 data-[state=active]:z-10 data-[state=active]:shadow-none">
           Watch
         </TabsTrigger>
       </TabsList>

@@ -13,21 +13,13 @@ import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
   console.log("Rendering Nav Bar");
-  const { cart } = useEcommerceContext();
+  const { cart, setIsDarkMode, isDarkMode } = useEcommerceContext();
   const cartLength = cart.length;
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+ 
   return (
     <div>
-      <div className="flex bg-white  dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
+      <div className="flex bg-white dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div className="drawer">
@@ -106,9 +98,9 @@ const Navbar = () => {
           <Input />
           <Switch
             className="ml-3 hidden md:block"
-            id="dark-mode"
-            checked={isDarkMode}
-            onCheckedChange={setIsDarkMode}
+            // id="dark-mode"
+            checked={!isDarkMode}
+            onCheckedChange={() => setIsDarkMode(prev => !prev)}
           />
           <Popover>
             <PopoverTrigger>

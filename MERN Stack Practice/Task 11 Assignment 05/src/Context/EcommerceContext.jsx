@@ -13,7 +13,9 @@ import { fetchProducts } from "../utils/FetchProducts";
 const EcommerceContext = createContext();
 
 const initialState = {
-  products: [],
+  Products: [],
+  searchFilter:[],
+  shopFilter: [],
   loading: true,
   error: "",
 };
@@ -23,12 +25,10 @@ const EcommerceContextProvider = ({ children }) => {
     FetchProducts,
     initialState
   );
+
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  
   const [cart, setCart] = useState([]);
-  // const [allProducts, setAllProducts] = useState([]);
-  const [filteredProducts, filteredProductsDispatch] = useReducer(
-    FetchProducts,
-    initialState
-  );
   const [selected, setSelected] = useState({
     Price: null,
     Category: null,
@@ -38,8 +38,18 @@ const EcommerceContextProvider = ({ children }) => {
 
   // Fetch Products
   useEffect(() => {
-    fetchProducts(productsDispatch, filteredProductsDispatch);
+    fetchProducts(productsDispatch);
   }, []);
+
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
 
   const handleSelect = useCallback((section, value) => {
     setSelected((prev) => ({
@@ -176,9 +186,8 @@ const EcommerceContextProvider = ({ children }) => {
 
   const state = {
     allProducts,
-    filteredProducts,
-
-
+    productsDispatch,
+    setIsDarkMode,
     cart,
     setCart,
     handleAddToCart,

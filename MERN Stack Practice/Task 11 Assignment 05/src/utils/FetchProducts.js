@@ -1,7 +1,4 @@
-export const fetchProducts = async (
-  productsDispatch,
-  filteredProductsDispatch
-) => {
+export const fetchProducts = async (productsDispatch) => {
   productsDispatch({ type: "FETCH_START" });
 
   try {
@@ -10,8 +7,10 @@ export const fetchProducts = async (
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    productsDispatch({ type: "FETCH_SUCCESS", products: data });
-    filteredProductsDispatch({ type: "FETCH_SUCCESS", products: data });
+    productsDispatch({
+      type: "FETCH_SUCCESS",
+      payload: data,
+    });
   } catch (err) {
     productsDispatch({ type: "FETCH_ERROR", error: "Failed To Fetch Data" });
   }

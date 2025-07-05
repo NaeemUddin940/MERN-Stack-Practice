@@ -3,8 +3,9 @@ import star from "../../assets/Vector.png";
 import CountUp from "../CountUp/CountUp";
 import heroImg from "../../assets/model.png";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+import React from "react";
 
-export default function HeroSection() {
+const HeroSection =() =>  {
   return (
     <div className="dark:bg-black bg-white">
       <div className="md:bg-[url(./assets/model.png)] py-7 bg-right bg-contain bg-no-repeat md:px-5 space-y-5 relative flex flex-col justify-center items-start">
@@ -71,3 +72,5 @@ export default function HeroSection() {
     </div>
   );
 }
+
+export default React.memo(HeroSection)

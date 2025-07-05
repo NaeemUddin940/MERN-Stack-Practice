@@ -3,10 +3,11 @@ import ThreeDCardDemo from "../ProductCard/ThreeDCardDemo";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import useLoadMore from "../../hooks/useLoadMore";
 
+
 export default function ProductSection({ title, filterFn }) {
   const { allProducts } = useEcommerceContext();
-
-  const data = Array.isArray(allProducts.products) ? allProducts.products : [];
+// console.log(allProducts);
+  const data = Array.isArray(allProducts.searchFilter) ? allProducts.searchFilter : [];
 
   const filtered = Array.isArray(data) ? data.filter(filterFn) : [];
 
