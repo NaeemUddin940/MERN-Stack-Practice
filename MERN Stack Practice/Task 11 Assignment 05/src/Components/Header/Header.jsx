@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import NotificationBar from "./NotificationBar";
 import { cn } from "../../lib/utils";
 import {useScrollContext} from '../../hooks/use-scroll-direction'
+import React from "react";
 
 const Header = () => {
   console.log("Rendering Header.....");
@@ -18,4 +19,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

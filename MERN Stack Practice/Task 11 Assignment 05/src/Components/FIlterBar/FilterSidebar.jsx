@@ -4,6 +4,7 @@ import Checkbox from "./Checkbox";
 import React from "react";
 
 const FilterSidebar = () => {
+  console.log("Filtering Sidebar....");
   const { selected, setSelected, handleSelect,applyFilter } =
     useEcommerceContext();
   const filter = {

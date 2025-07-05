@@ -3,22 +3,22 @@ import { useEcommerceContext } from "../../Context/EcommerceContext";
 import { useEffect, useState } from "react";
 
 const Input = () => {
-  const { useDebounce, allProducts, setProducts } = useEcommerceContext();
+  // const { useDebounce, allProducts, setProducts } = useEcommerceContext();
 
   // Here Use Debounce
   const [searchValue, setSearchValue] = useState("");
 
-  const debouncedSearch = useDebounce(searchValue, 300);
-  useEffect(() => {
-    if (debouncedSearch === "") {
-      setProducts(allProducts);
-    } else {
-      const filteredSearchProduct = allProducts.filter((p) =>
-        p.title.toLowerCase().includes(debouncedSearch.toLowerCase())
-      );
-      return setProducts(filteredSearchProduct);
-    }
-  }, [debouncedSearch, allProducts]);
+  // const debouncedSearch = useDebounce(searchValue, 300);
+  // useEffect(() => {
+  //   if (debouncedSearch === "") {
+  //     setProducts(allProducts);
+  //   } else {
+  //     const filteredSearchProduct = allProducts.filter((p) =>
+  //       p.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+  //     );
+  //     return setProducts(filteredSearchProduct);
+  //   }
+  // }, [debouncedSearch, allProducts]);
 
   return (
     <StyledWrapper>

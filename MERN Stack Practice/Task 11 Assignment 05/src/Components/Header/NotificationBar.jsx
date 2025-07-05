@@ -1,7 +1,8 @@
+import React from "react";
 import GradientText from "../GradientText/GradientText";
 import ShinyText from "../ShinyText/ShinyText";
 
-export default function NotificationBar() {
+function NotificationBar() {
   console.log("Rendering Notification Bar.....");
   return (
     <div className="bg-zinc-800 flex justify-center items-center">
@@ -30,3 +31,6 @@ export default function NotificationBar() {
     </div>
   );
 }
+
+
+export default React.memo(NotificationBar)

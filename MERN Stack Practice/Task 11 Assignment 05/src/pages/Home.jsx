@@ -2,8 +2,11 @@ import { Link } from "react-router";
 import HeroSection from "../Components/HeroSection/HeroSection";
 import { Marquee } from "../Components/magicui/marquee";
 import { TabDemo } from "../Components/Tabs/tabs-like-bookmark";
+import { useEcommerceContext } from "../Context/EcommerceContext";
 
 export default function Home() {
+  const {allProducts} = useEcommerceContext()
+
   return (
     <>
       <div className="px-5">
@@ -18,7 +21,8 @@ export default function Home() {
         <Link to='#' className="text-5xl font-bold px-4 py-5">Calvin Klein</Link>
       </Marquee>
       <div className="block">
-        <TabDemo />
+        {/* <TabDemo /> */}
+        {allProducts.products? <TabDemo /> : <p>Loading....</p>}
       </div>
     </>
   );

@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
 } from "../animate-ui/base/popover";
 import { Switch } from "../Footer/switch";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
   console.log("Rendering Nav Bar");
@@ -145,4 +145,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

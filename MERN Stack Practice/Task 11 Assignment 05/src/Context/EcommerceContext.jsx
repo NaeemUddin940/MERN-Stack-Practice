@@ -3,17 +3,24 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useReducer,
   useState,
 } from "react";
 import Loader from "../Components/Loading/Loader";
+import { FetchProducts } from "../Reducers/FetchProducts";
 
 const EcommerceContext = createContext();
 
+const initialState = {
+  products: [],
+  loading: true,
+  error: '',
+};
+
 const EcommerceContextProvider = ({ children }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [allProducts, productsDispatch] = useReducer(FetchProducts, initialState);
   const [cart, setCart] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
+  // const [allProducts, setAllProducts] = useState([]);
   const [filteredProduct, setFilterProduct] = useState([]);
   const [selected, setSelected] = useState({
     Price: null,
@@ -22,6 +29,27 @@ const EcommerceContextProvider = ({ children }) => {
     Size: null,
   });
 
+  // Fetch Products
+  useEffect(() => {
+    const fetchProducts = async () => {
+      productsDispatch({ type: "FETCH_START" });
+
+      try {
+        const response = await fetch("http://localhost:3000/products");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        productsDispatch({ type: "FETCH_SUCCESS", products: data });
+        setAllProducts(data);
+      } catch (err) {
+        productsDispatch({ type: "FETCH_ERROR", error: "Failed To Fetch Data" });
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   const handleSelect = useCallback((section, value) => {
     setSelected((prev) => ({
       ...prev,
@@ -29,8 +57,8 @@ const EcommerceContextProvider = ({ children }) => {
     }));
   }, []);
 
-  const applyFilter = () => {
-    let filtered = [...products];
+  const applyFilter = useCallback(() => {
+    // let filtered = [...products];
     if (selected.Category) {
       filtered = filtered.filter(
         (product) => product.catagory === selected.Category.toLowerCase()
@@ -50,37 +78,15 @@ const EcommerceContextProvider = ({ children }) => {
       filtered = filtered.sort((a, b) => a.price - b.price);
     }
 
-    setFilterProduct(filtered);
-  };
+    // setFilterProduct(filtered);
+  });
 
   useEffect(() => {
     let timer = setTimeout(() => {
       applyFilter();
     }, 150);
     return () => clearTimeout(timer);
-  }, [selected, products]);
-  // Fetch Products
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-
-      try {
-        const response = await fetch("http://localhost:3000/products");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setProducts(data);
-        setAllProducts(data);
-      } catch (err) {
-        console.error("Failed to fetch products:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  }, [selected]);
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -170,7 +176,7 @@ const EcommerceContextProvider = ({ children }) => {
     return debounced;
   }
 
-  if (loading)
+  if (allProducts.loading)
     return (
       <div className="text-5xl h-full font-bold flex justify-center text-center items-center">
         <Loader />
@@ -178,8 +184,8 @@ const EcommerceContextProvider = ({ children }) => {
     );
 
   const state = {
-    products,
-    loading,
+    allProducts,
+
     cart,
     setCart,
     handleAddToCart,
@@ -187,8 +193,8 @@ const EcommerceContextProvider = ({ children }) => {
     IncrementQuantity,
     DecrementQuantity,
     useDebounce,
-    setProducts,
-    allProducts,
+    // setProducts,
+    // allProducts,
     selected,
     setSelected,
     handleSelect,
