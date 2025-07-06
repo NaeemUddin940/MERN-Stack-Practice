@@ -1,18 +1,61 @@
 import { useEcommerceContext } from "../../Context/EcommerceContext";
 import Checkbox from "./Checkbox";
 
-import React from "react";
+import React, { useCallback, useState } from "react";
 
 const FilterSidebar = () => {
+  const { setFilteredProducts, allProducts } = useEcommerceContext();
   console.log("Filtering Sidebar....");
-  const { selected, setSelected, handleSelect,applyFilter } =
-    useEcommerceContext();
   const filter = {
     Price: ["Highest", "Lowest"],
     Category: ["T-shirt", "Shirt", "Pant", "Shoes", "Watch"],
     Color: ["Green", "Orange", "Gray", "Violate"],
     Size: ["S", "M", "L", "XL", "XXL"],
   };
+
+  const [selected, setSelected] = useState({
+    Price: null,
+    Category: null,
+    Color: null,
+    Size: null,
+  });
+
+  const handleSelect = useCallback((section, value) => {
+    setSelected((prev) => ({
+      ...prev,
+      [section]: prev[section] === value ? null : value,
+    }));
+  }, []);
+
+  const applyFilter = useCallback(() => {
+    let filtered = [...allProducts.products];
+    if (selected.Category) {
+      const select = selected.Category.toLowerCase();
+      filtered = filtered.filter((p) => p.catagory === select);
+    }
+
+    if (selected.Color) {
+      const select = selected.Color;
+      console.log(select);
+      filtered = filtered.filter((p) => p.color === select);
+    }
+
+    if (selected.Size) {
+      filtered = filtered.filter((p) => p.size === selected.Size);
+    }
+
+    if (selected.Price === "Lowest") {
+      filtered = filtered.sort((a, b) => a.price - b.price);
+    }
+
+    if (selected.Price === "Highest") {
+      filtered = filtered.sort((a, b) => b.price - a.price);
+    }
+
+    console.log("Final Filtered Products:", filtered);
+    setFilteredProducts(filtered);
+  }, [selected, allProducts, setFilteredProducts]);
+
   return (
     <div className="pl-4 sticky top-0 ">
       <div className="flex flex-col">
@@ -28,7 +71,7 @@ const FilterSidebar = () => {
                   isChecked={selected[section] === item}
                   onChange={() => {
                     handleSelect(section, item);
-                    applyFilter()
+                    applyFilter();
                   }}
                 />
               ))}
@@ -51,6 +94,6 @@ const FilterSidebar = () => {
       </button>
     </div>
   );
-}
+};
 
-export default React.memo(FilterSidebar)
+export default React.memo(FilterSidebar);

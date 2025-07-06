@@ -18,6 +18,21 @@ export default function cartReducer(state, action) {
     case "REMOVE_FROM_CART":
       return state.filter((item) => item.id !== action.payload);
 
+    case "INCREMENT_QUANTITY":
+      return state.map((product) =>
+        product.id === action.payload.id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      );
+
+    case "DECREMENT_QUANTITY":
+      if(action.payload.quantity <= 1 ) return state
+      return state.map((product) =>
+        product.id === action.payload.id
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      );
+
     default:
       return state;
   }

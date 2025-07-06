@@ -5,10 +5,7 @@ import React, { useMemo } from "react";
 function ShoppingCart() {
   const {
     cart,
-    allProduct,
     cartDispatch,
-    IncrementQuantity,
-    DecrementQuantity,
   } = useEcommerceContext();
 
   const cartLength = cart.length;
@@ -48,7 +45,7 @@ function ShoppingCart() {
                 </div>
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={() => IncrementQuantity(item)}
+                    onClick={() => cartDispatch({type:"INCREMENT_QUANTITY", payload: item })}
                     className="bg-gray-200 font-black dark:bg-zinc-800 dark:active:bg-black active:bg-gray-400 cursor-pointer py-1 px-2 rounded-md">
                     +
                   </button>
@@ -56,11 +53,11 @@ function ShoppingCart() {
                     <p className="font-bold">{item.quantity}</p>
                   </div>
                   <button
-                    onClick={() => DecrementQuantity(item)}
+                    onClick={() => cartDispatch({type:"DECREMENT_QUANTITY", payload: item })}
                     className="bg-gray-200 dark:bg-zinc-800 dark:active:bg-black font-black active:bg-gray-400 cursor-pointer py-1 px-2.5 rounded-md">
                     -
                   </button>
-                  <p className="font-semibold">${item.price}</p>
+                  <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
                   <button
                     onClick={() =>
                       cartDispatch({

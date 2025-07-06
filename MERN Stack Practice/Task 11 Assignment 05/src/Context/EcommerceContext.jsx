@@ -15,7 +15,7 @@ import useCartLocalStorage from "../hooks/useCartLocalStorage";
 const EcommerceContext = createContext();
 
 const initialState = {
-  Products: [],
+  products: [],
   searchFilter: [],
   shopFilter: [],
   loading: true,
@@ -28,16 +28,12 @@ const EcommerceContextProvider = ({ children }) => {
     initialState
   );
   const [cart, cartDispatch] = useReducer(cartReducer, []);
+  const [filteredProducts, setFilteredProducts] = useState(
+    allProducts.searchFilter
+  );
 
-  
+  console.log(filteredProducts);
   const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const [selected, setSelected] = useState({
-    Price: null,
-    Category: null,
-    Color: null,
-    Size: null,
-  });
 
   // Fetch Products
   useEffect(() => {
@@ -55,88 +51,40 @@ const EcommerceContextProvider = ({ children }) => {
     }
   }, [isDarkMode]);
 
-  const handleSelect = useCallback((section, value) => {
-    setSelected((prev) => ({
-      ...prev,
-      [section]: prev[section] === value ? null : value,
-    }));
-  }, []);
+  //   const applyFilter = useCallback(() => {
+  //     let filtered = [...filteredProducts]
 
-  const applyFilter = useCallback(() => {
-    // let filtered = [...products];
-    if (selected.Category) {
-      filtered = filtered.filter(
-        (product) => product.catagory === selected.Category.toLowerCase()
-      );
-    } else {
-    }
-    if (selected.Color) {
-      filtered = filtered.filter((product) => product.color === selected.Color);
-    }
-    if (selected.Size) {
-      filtered = filtered.filter((product) => product.size === selected.Size);
-    }
-    if (selected.Price === "Lowest") {
-      filtered = filtered.sort((a, b) => b.price - a.price);
-    }
-    if (selected.Price === "Highest") {
-      filtered = filtered.sort((a, b) => a.price - b.price);
-    }
+  //     if (selected.Category) {
+  //       filtered = filtered.filter(
+  //         (product) => product.catagory === selected.Category.toLowerCase()
+  //       );
+  //       console.log(filtered);
+  //     }
 
-    // setFilterProduct(filtered);
-  });
+  //     if (selected.Color) {
+  //       console.log(selected.Color);
+  //       filtered = filtered.filter((product) => product.color === selected.Color);
 
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      applyFilter();
-    }, 150);
-    return () => clearTimeout(timer);
-  }, [selected]);
+  //     }
 
-  // Increment Quantity
-  const IncrementQuantity = useCallback(
-    (item) => {
-      const updatedCart = cart.map((product) =>
-        product.id === item.id
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
-      );
-      setCart(updatedCart);
-    },
-    [cart]
-  );
+  //     if (selected.Size) {
+  //       filtered = filtered.filter((product) => product.size === selected.Size);
+  //     }
 
-  // Decrement Quantity
-  const DecrementQuantity = useCallback(
-    (item) => {
-      if (item.quantity <= 1) return;
-      const updatedCart = cart.map((product) =>
-        product.id === item.id
-          ? { ...product, quantity: product.quantity - 1 }
-          : product
-      );
-      setCart(updatedCart);
-    },
-    [cart]
-  );
+  //     if (selected.Price === "Lowest") {
+  //       filtered = filtered.sort((a, b) => a.price - b.price);
+  //     }
 
-  // This is Debounce Function
-  function useDebounce(value, delay) {
-    const [debounced, setDebounced] = useState(value);
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setDebounced(value);
-      }, delay);
+  //     if (selected.Price === "Highest") {
+  //     filtered = filtered.sort((a, b) => b.price - a.price);
+  //   }
 
-      return () => clearTimeout(timer);
-    }, [value, delay]);
-
-    return debounced;
-  }
+  //   setFilteredProducts(filtered); // filtered product array আলাদা state-এ রাখো
+  // }, [allProducts.products, selected]);
 
   if (allProducts.loading)
     return (
-      <div className="text-5xl h-full font-bold flex justify-center text-center items-center">
+      <div className="text-5xl h-full bg-white font-bold flex justify-center text-center items-center">
         <Loader />
       </div>
     );
@@ -146,14 +94,9 @@ const EcommerceContextProvider = ({ children }) => {
     productsDispatch,
     setIsDarkMode,
     cart,
+    filteredProducts,
     cartDispatch,
-    IncrementQuantity,
-    DecrementQuantity,
-    useDebounce,
-    selected,
-    setSelected,
-    handleSelect,
-    applyFilter,
+    setFilteredProducts,
   };
 
   return (

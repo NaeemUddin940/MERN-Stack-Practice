@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { useEcommerceContext } from "../../Context/EcommerceContext";
 import React, { useEffect, useState } from "react";
+import useDebounce from "../../hooks/useDebounce";
 
 const Input = () => {
-  const { useDebounce, allProducts, productsDispatch } = useEcommerceContext();
+  const { allProducts, productsDispatch } = useEcommerceContext();
 
   // Here Use Debounce
   const [searchValue, setSearchValue] = useState("");
