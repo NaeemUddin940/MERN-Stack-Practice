@@ -12,6 +12,7 @@ import { Switch } from "../Footer/switch";
 import React from "react";
 
 const Navbar = () => {
+  
   console.log("Rendering Nav Bar");
   const { cart, setIsDarkMode, isDarkMode } = useEcommerceContext();
   const cartLength = cart.length;

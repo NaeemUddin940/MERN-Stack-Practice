@@ -11,12 +11,14 @@ import { FetchProducts } from "../Reducers/FetchProducts";
 import { fetchProducts } from "../utils/FetchProducts";
 import cartReducer from "../Reducers/cartReducer";
 import useCartLocalStorage from "../hooks/useCartLocalStorage";
+import { FilterReducer } from "../Reducers/FilterReducer";
 
 const EcommerceContext = createContext();
 
 const initialState = {
   products: [],
   searchFilter: [],
+  selected: { Price: null, Category: null, Color: null, Size: null },
   shopFilter: [],
   loading: true,
   error: "",
@@ -27,12 +29,17 @@ const EcommerceContextProvider = ({ children }) => {
     FetchProducts,
     initialState
   );
-  const [cart, cartDispatch] = useReducer(cartReducer, []);
-  const [filteredProducts, setFilteredProducts] = useState(
-    allProducts.searchFilter
-  );
 
-  console.log(filteredProducts);
+  const [selected, dispatch] = useReducer(FilterReducer, initialState);
+  const checkboxSelect = (section, value) => {
+    dispatch({
+      type: "TOGGLE_FILTER",
+      payload: { section, value },
+    });
+  };
+
+  const [cart, cartDispatch] = useReducer(cartReducer, []);
+
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   // Fetch Products
@@ -43,6 +50,8 @@ const EcommerceContextProvider = ({ children }) => {
   // Cart Products Save on Loacl Storage
   useCartLocalStorage(cart, cartDispatch);
 
+
+
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
@@ -50,37 +59,6 @@ const EcommerceContextProvider = ({ children }) => {
       document.documentElement.classList.remove("dark");
     }
   }, [isDarkMode]);
-
-  //   const applyFilter = useCallback(() => {
-  //     let filtered = [...filteredProducts]
-
-  //     if (selected.Category) {
-  //       filtered = filtered.filter(
-  //         (product) => product.catagory === selected.Category.toLowerCase()
-  //       );
-  //       console.log(filtered);
-  //     }
-
-  //     if (selected.Color) {
-  //       console.log(selected.Color);
-  //       filtered = filtered.filter((product) => product.color === selected.Color);
-
-  //     }
-
-  //     if (selected.Size) {
-  //       filtered = filtered.filter((product) => product.size === selected.Size);
-  //     }
-
-  //     if (selected.Price === "Lowest") {
-  //       filtered = filtered.sort((a, b) => a.price - b.price);
-  //     }
-
-  //     if (selected.Price === "Highest") {
-  //     filtered = filtered.sort((a, b) => b.price - a.price);
-  //   }
-
-  //   setFilteredProducts(filtered); // filtered product array আলাদা state-এ রাখো
-  // }, [allProducts.products, selected]);
 
   if (allProducts.loading)
     return (
@@ -94,9 +72,11 @@ const EcommerceContextProvider = ({ children }) => {
     productsDispatch,
     setIsDarkMode,
     cart,
-    filteredProducts,
+    selected,
+    checkboxSelect,
+    dispatch,
     cartDispatch,
-    setFilteredProducts,
+    initialState,
   };
 
   return (

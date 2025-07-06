@@ -4,7 +4,7 @@ import { useEcommerceContext } from "../Context/EcommerceContext";
 import FilterSIdebar from "../Components/FIlterBar/FilterSidebar";
 
 const Shop = () => {
-  const {  filteredProducts, allProducts } =
+  const { allProducts } =
     useEcommerceContext();
   return (
     <div className="grid min-h-screen">
@@ -15,7 +15,7 @@ const Shop = () => {
           />
         </aside>  
         <div className="overflow-auto w-full scrollbar-hide">
-          {allProducts?.searchFilter?.length === 0 ? (
+          {allProducts?.products?.length === 0 ? (
             <div className="text-gray-500 w-full center">
               <p className="flex h-50 justify-center items-center text-5xl font-bold">
                 No Products Found....!!
