@@ -1,11 +1,15 @@
-import { CardBody, CardContainer, CardItem } from "../../Components/ProductCard/3d-card";
+import {
+  CardBody,
+  CardContainer,
+  CardItem,
+} from "../../Components/ProductCard/3d-card";
 import { NavLink } from "react-router";
 import { Star } from "lucide-react";
-import {  useEcommerceContext } from "../../Context/EcommerceContext";
+import { useEcommerceContext } from "../../Context/EcommerceContext";
 import React from "react";
 
 const ThreeDCardDemo = ({ product }) => {
-  const { handleAddToCart, cart, handleRemoveCart } = useEcommerceContext();
+  const { cart, cartDispatch } = useEcommerceContext();
 
   return (
     <CardContainer className="cursor-pointer">
@@ -58,9 +62,12 @@ const ThreeDCardDemo = ({ product }) => {
             <CardItem
               translateZ={20}
               as="button"
-              onClick={() => {
-                handleRemoveCart(product.id);
-              }}
+              onClick={() =>
+                cartDispatch({
+                  type: "REMOVE_FROM_CART",
+                  payload: product.id ,
+                })
+              }
               className="px-4  py-3 cursor-pointer rounded-xl bg-red-400 text-black Cart dark:bg-red-400 dark:text-black  text-xs font-bold">
               Remove Cart
             </CardItem>
@@ -68,7 +75,9 @@ const ThreeDCardDemo = ({ product }) => {
             <CardItem
               translateZ={20}
               as="button"
-              onClick={() => handleAddToCart(product)}
+              onClick={() =>
+                cartDispatch({ type: "ADD_TO_CART", payload: product })
+              }
               className="px-4  py-3 cursor-pointer rounded-xl dark:bg-violet-500 bg-green-500 text-white dark:text-black  text-xs font-bold">
               Add To Cart
             </CardItem>

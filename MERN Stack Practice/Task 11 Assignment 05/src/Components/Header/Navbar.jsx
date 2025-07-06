@@ -9,14 +9,12 @@ import {
   PopoverTrigger,
 } from "../animate-ui/base/popover";
 import { Switch } from "../Footer/switch";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Navbar = () => {
   console.log("Rendering Nav Bar");
   const { cart, setIsDarkMode, isDarkMode } = useEcommerceContext();
   const cartLength = cart.length;
-
- 
   return (
     <div>
       <div className="flex bg-white dark:bg-black md:shadow-sm lg:px-20 md:px-10 px-5 border-b-3 ">

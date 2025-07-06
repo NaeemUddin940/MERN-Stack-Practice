@@ -3,8 +3,13 @@ import { useEcommerceContext } from "../../Context/EcommerceContext";
 import React, { useMemo } from "react";
 
 function ShoppingCart() {
-  const { cart, handleRemoveCart, IncrementQuantity, DecrementQuantity } =
-    useEcommerceContext();
+  const {
+    cart,
+    allProduct,
+    cartDispatch,
+    IncrementQuantity,
+    DecrementQuantity,
+  } = useEcommerceContext();
 
   const cartLength = cart.length;
   const subTotal = useMemo(
@@ -57,7 +62,12 @@ function ShoppingCart() {
                   </button>
                   <p className="font-semibold">${item.price}</p>
                   <button
-                    onClick={() => handleRemoveCart(item.id)}
+                    onClick={() =>
+                      cartDispatch({
+                        type: "REMOVE_FROM_CART",
+                        payload: item.id ,
+                      })
+                    }
                     className="text-gray-400 hover:text-gray-700">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +98,7 @@ function ShoppingCart() {
         Continue to Payment
       </button> */}
       <div className="flex justify-center items-center">
-        <InteractiveHoverButton text="Continue to Payment" rounded='xl' />
+        <InteractiveHoverButton text="Continue to Payment" rounded="xl" />
       </div>
 
       <p className="text-center text-xs text-gray-400 mt-2">

@@ -9,6 +9,7 @@ import {
 import Loader from "../Components/Loading/Loader";
 import { FetchProducts } from "../Reducers/FetchProducts";
 import { fetchProducts } from "../utils/FetchProducts";
+import cartReducer from "../Reducers/cartReducer";
 
 const EcommerceContext = createContext();
 
@@ -25,10 +26,10 @@ const EcommerceContextProvider = ({ children }) => {
     FetchProducts,
     initialState
   );
+  const [cart, cartDispatch] = useReducer(cartReducer,[]);
 
   const [isDarkMode, setIsDarkMode] = useState(true);
   
-  const [cart, setCart] = useState([]);
   const [selected, setSelected] = useState({
     Price: null,
     Category: null,
@@ -89,52 +90,52 @@ const EcommerceContextProvider = ({ children }) => {
     return () => clearTimeout(timer);
   }, [selected]);
 
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    try {
-      if (storedCart) {
-        setCart(JSON.parse(storedCart));
-      }
-    } catch (error) {
-      console.log(error);
-      localStorage.removeItem("cart");
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedCart = localStorage.getItem("cart");
+  //   try {
+  //     if (storedCart) {
+  //       setCart(JSON.parse(storedCart));
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     localStorage.removeItem("cart");
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    if (cart.length > 0) {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    } else {
-      localStorage.removeItem("cart");
-    }
-  }, [cart]);
+  // useEffect(() => {
+  //   if (cart.length > 0) {
+  //     localStorage.setItem("cart", JSON.stringify(cart));
+  //   } else {
+  //     localStorage.removeItem("cart");
+  //   }
+  // }, [cart]);
 
   // Add To Cart
-  const handleAddToCart = useCallback(
-    (product) => {
-      const existProduct = cart.find((item) => item.id === product.id);
-      if (existProduct) {
-        setCart(
-          cart.map((item) =>
-            item.id === product.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          )
-        );
-      } else {
-        setCart([...cart, { ...product, quantity: 1 }]);
-      }
-    },
-    [cart]
-  );
+  // const handleAddToCart = useCallback(
+  //   (product) => {
+  //     const existProduct = cart.find((item) => item.id === product.id);
+  //     if (existProduct) {
+  //       setCart(
+  //         cart.map((item) =>
+  //           item.id === product.id
+  //             ? { ...item, quantity: item.quantity + 1 }
+  //             : item
+  //         )
+  //       );
+  //     } else {
+  //       setCart([...cart, { ...product, quantity: 1 }]);
+  //     }
+  //   },
+  //   [cart]
+  // );
 
   // Remove From Cart
-  const handleRemoveCart = useCallback(
-    (id) => {
-      setCart(cart.filter((item) => item.id !== id));
-    },
-    [cart]
-  );
+  // const handleRemoveCart = useCallback(
+  //   (id) => {
+  //     setCart(cart.filter((item) => item.id !== id));
+  //   },
+  //   [cart]
+  // );
 
   // Increment Quantity
   const IncrementQuantity = useCallback(
@@ -189,9 +190,7 @@ const EcommerceContextProvider = ({ children }) => {
     productsDispatch,
     setIsDarkMode,
     cart,
-    setCart,
-    handleAddToCart,
-    handleRemoveCart,
+    cartDispatch,
     IncrementQuantity,
     DecrementQuantity,
     useDebounce,

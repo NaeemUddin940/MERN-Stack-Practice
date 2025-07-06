@@ -14,7 +14,7 @@ const Input = () => {
     if (debouncedSearch === "") {
       productsDispatch({
         type: "SEARCH_PRODUCTS",
-        products: allProducts.products, // আসল full product list
+        products: allProducts.products, 
       });
     } else {
       const filtered = allProducts.products.filter((p) =>
