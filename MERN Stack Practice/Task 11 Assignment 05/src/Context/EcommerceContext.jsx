@@ -1,6 +1,5 @@
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useReducer,
@@ -18,38 +17,44 @@ const EcommerceContext = createContext();
 const initialState = {
   products: [],
   searchFilter: [],
-  selected: { Price: null, Category: null, Color: null, Size: null },
   shopFilter: [],
   loading: true,
   error: "",
 };
 
+const checkboxState = {
+  Price: null,
+  Category: null,
+  Color: null,
+  Size: null,
+};
+
 const EcommerceContextProvider = ({ children }) => {
+
+  //  Fetch Products Reducer State
   const [allProducts, productsDispatch] = useReducer(
     FetchProducts,
     initialState
   );
-
-  const [selected, dispatch] = useReducer(FilterReducer, initialState);
-  const checkboxSelect = (section, value) => {
-    dispatch({
-      type: "TOGGLE_FILTER",
-      payload: { section, value },
-    });
-  };
-
+  
+  // Showing Products On cart Reducer State
   const [cart, cartDispatch] = useReducer(cartReducer, []);
-
+  
+  
+  // Dark Mode Toggle State
   const [isDarkMode, setIsDarkMode] = useState(true);
+  
+  
+  // Products Filter State
+  const [filtered, setFiltered] = useState([]);
+  
 
-  // Fetch Products
-  useEffect(() => {
-    fetchProducts(productsDispatch);
-  }, []);
+  // Checkbox Selected Reducer State
+  const [selected, selectDispatch] = useReducer(FilterReducer, checkboxState);
 
+  
   // Cart Products Save on Loacl Storage
   useCartLocalStorage(cart, cartDispatch);
-
 
 
   useEffect(() => {
@@ -59,6 +64,48 @@ const EcommerceContextProvider = ({ children }) => {
       document.documentElement.classList.remove("dark");
     }
   }, [isDarkMode]);
+
+  // Fetch Products
+  useEffect(() => {
+    fetchProducts(productsDispatch);
+  }, []);
+
+
+  const checkboxSelect = (section, value) => {
+    selectDispatch({
+      type: "TOGGLE_SELECT",
+      payload: { section, value },
+    });
+  };
+
+
+  function applyFilter() {
+    let filtered = allProducts.shopFilter;
+    if (selected.Category) {
+      filtered = filtered.filter(
+        (p) => p.catagory === selected.Category.toLowerCase()
+      );
+    }
+    if (selected.Color) {
+      filtered = filtered.filter((p) => p.colors === selected.Color);
+    }
+    if (selected.Size) {
+      filtered = filtered.filter((p) => p.size === selected.Size);
+    }
+    if (selected.Price === "Highest") {
+      filtered = filtered.sort((a, b) => b.price - a.price);
+    }
+    if (selected.Price === "Lowest") {
+      filtered = filtered.sort((a, b) => a.price - b.price);
+    }
+    setFiltered(filtered);
+  }
+  useEffect(() => {
+    applyFilter();
+  }, [selected, allProducts.shopFilter]);
+
+
+
 
   if (allProducts.loading)
     return (
@@ -72,11 +119,12 @@ const EcommerceContextProvider = ({ children }) => {
     productsDispatch,
     setIsDarkMode,
     cart,
-    selected,
-    checkboxSelect,
-    dispatch,
     cartDispatch,
-    initialState,
+    filtered,
+    checkboxSelect,
+    selected,
+    selectDispatch,
+    checkboxState,
   };
 
   return (

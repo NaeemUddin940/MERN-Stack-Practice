@@ -8,6 +8,7 @@ const Checkbox = ({ subtitle, isChecked, onChange }) => {
       <label className="flex items-center gap-2 cursor-pointer select-none">
         <input
           type="checkbox"
+          id={id}
           className="ui-checkbox"
           checked={isChecked}
           onChange={onChange}

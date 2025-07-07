@@ -4,7 +4,7 @@ import { useEcommerceContext } from "../Context/EcommerceContext";
 import FilterSIdebar from "../Components/FIlterBar/FilterSidebar";
 
 const Shop = () => {
-  const { allProducts } =
+  const { filtered  } =
     useEcommerceContext();
   return (
     <div className="grid min-h-screen">
@@ -15,7 +15,7 @@ const Shop = () => {
           />
         </aside>  
         <div className="overflow-auto w-full scrollbar-hide">
-          {allProducts?.products?.length === 0 ? (
+          {filtered.length === 0 ? (
             <div className="text-gray-500 w-full center">
               <p className="flex h-50 justify-center items-center text-5xl font-bold">
                 No Products Found....!!
@@ -23,7 +23,7 @@ const Shop = () => {
             </div>
           ) : (
             <div className="grid gap-6 px-5 w-full mx-auto grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]">
-              {allProducts?.products?.map((product) => {
+              {filtered.map((product) => {
                 return <ThreeDCardDemo key={product.id} product={product} />;
               })}
             </div>
