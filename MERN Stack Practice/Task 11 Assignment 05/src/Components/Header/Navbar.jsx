@@ -8,11 +8,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "../animate-ui/base/popover";
-import { Switch } from "../Footer/switch";
+import Switch from "../Footer/switch";
 import React from "react";
 
 const Navbar = () => {
-  
   console.log("Rendering Nav Bar");
   const { cart, setIsDarkMode, isDarkMode } = useEcommerceContext();
   const cartLength = cart.length;
@@ -50,7 +49,14 @@ const Navbar = () => {
                   className="drawer-overlay">
                   <ul className="menu bg-base-200 text-base-content dark:bg-black dark:text-gray-200 min-h-full w-70 p-4">
                     <details className="bg-zinc-900 border-2 py-1 px-3 rounded-2xl cursor-pointer hover:bg-black">
-                      <summary className="text-2xl font-bold">Menu</summary>
+                      <summary className="text-2xl font-bold flex items-center justify-between">
+                        <span>Menu</span>
+                        <Switch
+                          className="block md:hidden"
+                          checked={isDarkMode}
+                          onCheckedChange={() => setIsDarkMode((prev) => !prev)}
+                        />
+                      </summary>
                       {/* Sidebar content here */}
                       <li className=" font-bold">
                         <NavLink to="/" className={"text-2xl"}>
@@ -94,13 +100,14 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          <Input />
-          <Switch
-            className="ml-3 hidden md:block"
-            // id="dark-mode"
-            checked={!isDarkMode}
-            onCheckedChange={() => setIsDarkMode(prev => !prev)}
-          />
+          <div className="flex gap-3 items-center">
+            <Input />
+            <Switch
+              className="hidden md:block"
+              checked={isDarkMode}
+              onCheckedChange={() => setIsDarkMode((prev) => !prev)}
+            />
+          </div>
           <Popover>
             <PopoverTrigger>
               <div className="pl-5 relative w-full flex justify-center items-center">
