@@ -4,7 +4,7 @@ import '../Error/style.css'
 export default function ErrorPage({title, des}) {
   return (
     <div className='px-20'>
-      <section className="page_404">
+      <section className="page_404 bg-white text-black">
         <div className="container">
           <div className="row">
             <div className="col-sm-12 ">

@@ -6,21 +6,14 @@ import {
   useState,
 } from "react";
 import Loader from "../Components/Loading/Loader";
-import { FetchProducts } from "../Reducers/FetchProducts";
-import { fetchProducts } from "../utils/FetchProducts";
 import cartReducer from "../Reducers/cartReducer";
 import useCartLocalStorage from "../hooks/useCartLocalStorage";
 import { FilterReducer } from "../Reducers/FilterReducer";
+import { products } from "../Data/Data";
 
 const EcommerceContext = createContext();
 
-const initialState = {
-  products: [],
-  searchFilter: [],
-  shopFilter: [],
-  loading: true,
-  error: "",
-};
+
 
 const checkboxState = {
   Price: null,
@@ -30,32 +23,22 @@ const checkboxState = {
 };
 
 const EcommerceContextProvider = ({ children }) => {
-
-  //  Fetch Products Reducer State
-  const [allProducts, productsDispatch] = useReducer(
-    FetchProducts,
-    initialState
-  );
-  
+  const [Products, setProducts] = useState(products);
+  const [searchProducts, setSearchProducts] = useState([...Products]);
   // Showing Products On cart Reducer State
   const [cart, cartDispatch] = useReducer(cartReducer, []);
-  
-  
+
   // Dark Mode Toggle State
   const [isDarkMode, setIsDarkMode] = useState(true);
-  
-  
+
   // Products Filter State
   const [filtered, setFiltered] = useState([]);
-  
 
   // Checkbox Selected Reducer State
   const [selected, selectDispatch] = useReducer(FilterReducer, checkboxState);
 
-  
   // Cart Products Save on Loacl Storage
   useCartLocalStorage(cart, cartDispatch);
-
 
   useEffect(() => {
     if (isDarkMode) {
@@ -66,10 +49,9 @@ const EcommerceContextProvider = ({ children }) => {
   }, [isDarkMode]);
 
   // Fetch Products
-  useEffect(() => {
-    fetchProducts(productsDispatch);
-  }, []);
-
+  // useEffect(() => {
+  //   fetchProducts(productsDispatch);
+  // }, []);
 
   const checkboxSelect = (section, value) => {
     selectDispatch({
@@ -78,9 +60,8 @@ const EcommerceContextProvider = ({ children }) => {
     });
   };
 
-
   function applyFilter() {
-    let filtered = allProducts.shopFilter;
+    let filtered = [...Products];
     if (selected.Category) {
       filtered = filtered.filter(
         (p) => p.catagory === selected.Category.toLowerCase()
@@ -102,12 +83,9 @@ const EcommerceContextProvider = ({ children }) => {
   }
   useEffect(() => {
     applyFilter();
-  }, [selected, allProducts.shopFilter]);
+  }, [selected, Products]);
 
-
-
-
-  if (allProducts.loading)
+  if (!Products || Products.length === 0)
     return (
       <div className="text-5xl h-full bg-white font-bold flex justify-center text-center items-center">
         <Loader />
@@ -115,12 +93,15 @@ const EcommerceContextProvider = ({ children }) => {
     );
 
   const state = {
-    allProducts,
-    productsDispatch,
+    Products,
+    setProducts,
     setIsDarkMode,
+    setSearchProducts,
+    searchProducts,
     cart,
     cartDispatch,
     filtered,
+    setFiltered,
     checkboxSelect,
     selected,
     selectDispatch,

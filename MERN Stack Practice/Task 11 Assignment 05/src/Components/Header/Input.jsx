@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import useDebounce from "../../hooks/useDebounce";
 
 const Input = () => {
-  const { allProducts, productsDispatch } = useEcommerceContext();
+  const { Products, setSearchProducts, filtered, setFiltered } = useEcommerceContext();
 
   // Here Use Debounce
   const [searchValue, setSearchValue] = useState("");
@@ -13,18 +13,14 @@ const Input = () => {
 
   useEffect(() => {
     if (debouncedSearch === "") {
-      productsDispatch({
-        type: "SEARCH_PRODUCTS",
-        products: allProducts.products, 
-      });
+      setSearchProducts([...Products]);
+      setFiltered([...Products]);
     } else {
-      const filtered = allProducts.products.filter((p) =>
+      const filtered = Products.filter((p) =>
         p.title.toLowerCase().includes(debouncedSearch.toLowerCase())
       );
-      productsDispatch({
-        type: "SEARCH_PRODUCTS",
-        products: filtered,
-      });
+      setSearchProducts(filtered);
+      setFiltered(filtered);
     }
   }, [debouncedSearch]);
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button } from "./button";
 import { Input } from "./input";
 import { Label } from "./label";
-import  Switch  from "./switch";
+import Switch from "./switch";
 import { Textarea } from "./textarea";
 import {
   Tooltip,
@@ -20,11 +20,10 @@ import {
   Twitter,
 } from "lucide-react";
 import { Link } from "react-router";
-import {useEcommerceContext} from "../../Context/EcommerceContext"
+import { useEcommerceContext } from "../../Context/EcommerceContext";
 
 function Footerdemo() {
-
-   const { setIsDarkMode, isDarkMode } = useEcommerceContext();
+  const { setIsDarkMode, isDarkMode } = useEcommerceContext();
 
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">

@@ -7,38 +7,13 @@ import ErrorPage from "./Error/ErrorPage";
 import { useEcommerceContext } from "../Context/EcommerceContext";
 
 export default function ProductPage() {
+  const { Products } = useEcommerceContext();
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const product = Products.find((item) => item.id === id);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-    const { cartDispatch } = useEcommerceContext();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch(`http://localhost:3000/products/${id}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setProduct(data);
-      } catch (err) {
-        if (id !== id.length) {
-          console.error("Failed to fetch products:", err);
-          return setError("Failed to load Products.");
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [id]);
+  const { cartDispatch } = useEcommerceContext();
   const [imgPreview, setImgPreview] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
   if (loading)
     return (
       <div>

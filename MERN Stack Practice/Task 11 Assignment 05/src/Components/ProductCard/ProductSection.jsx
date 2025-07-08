@@ -5,9 +5,9 @@ import useLoadMore from "../../hooks/useLoadMore";
 
 
 export default function ProductSection({ title, filterFn }) {
-  const { allProducts } = useEcommerceContext();
-// console.log(allProducts);
-  const data = Array.isArray(allProducts.searchFilter) ? allProducts.searchFilter : [];
+  const { searchProducts } = useEcommerceContext();
+// console.log(Products);
+  const data = Array.isArray(searchProducts) ? searchProducts : [];
 
   const filtered = Array.isArray(data) ? data.filter(filterFn) : [];
 

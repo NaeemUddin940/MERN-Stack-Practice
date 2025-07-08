@@ -1,5 +1,5 @@
-{
-  "products": [
+
+export const products = [
     {
       "id": "2bb7e802-59d6-4705-ac34-da4d55d96e95",
       "title": "Exclusive clear-thinking array",
@@ -1601,4 +1601,4 @@
       ]
     }
   ]
-}
+

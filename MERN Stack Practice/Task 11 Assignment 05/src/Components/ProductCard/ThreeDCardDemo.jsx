@@ -78,7 +78,7 @@ const ThreeDCardDemo = ({ product }) => {
               onClick={() =>
                 cartDispatch({ type: "ADD_TO_CART", payload: product })
               }
-              className="px-4  py-3 cursor-pointer rounded-xl dark:bg-violet-500 bg-green-500 text-white dark:text-black  text-xs font-bold">
+              className="px-4  py-3 cursor-pointer rounded-xl dark:bg-green-500 bg-violet-500 text-white dark:text-black  text-xs font-bold">
               Add To Cart
             </CardItem>
           )}

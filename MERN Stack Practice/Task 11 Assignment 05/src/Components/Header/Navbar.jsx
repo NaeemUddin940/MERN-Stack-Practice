@@ -81,7 +81,7 @@ const Navbar = () => {
             </div>
           </div>
           <Link to="/" className="text-3xl font-bold">
-            Exclusive
+            ShopEase
           </Link>
         </div>
 
