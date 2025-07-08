@@ -4,12 +4,14 @@ import { InteractiveHoverButton } from "../Components/ui/interactive-hover-butto
 import { useParams } from "react-router";
 import Loader from "../Components/Loading/Loader";
 import ErrorPage from "./Error/ErrorPage";
+import { useEcommerceContext } from "../Context/EcommerceContext";
 
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+    const { cartDispatch } = useEcommerceContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -134,21 +136,12 @@ export default function ProductPage() {
           </div>
 
           <div className="mb-4 flex items-center gap-10">
-            {/* <div>
-              <h4 className="font-medium text-2xl mb-1">Colors:</h4>
-              <div className="flex gap-2">
-                <button
-                
-                  className={`w-6 h-6 rounded-full border-3 ${
-                    selectedColor === product.colors
-                      ? "border-zinc-900"
-                      : "border-gray-300"
-                  }`}
-                  style={{ backgroundColor: product.colors }}
-                  onClick={() => setSelectedColor(color)}></button>
-              </div>
-            </div> */}
-            <InteractiveHoverButton text="Add To Cart" />
+            <InteractiveHoverButton
+              onClick={() =>
+                cartDispatch({ type: "ADD_TO_CART", payload: product })
+              }
+              text="Add To Cart"
+            />
           </div>
 
           <ul className="text-xl text-gray-600 space-y-1">
